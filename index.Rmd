@@ -1,0 +1,376 @@
+---
+title: ""
+author: ""
+date: ""
+
+output:
+  html_document:
+    theme: flatly
+    css: assets/css/style.css
+    toc: false
+---
+
+```{=html}
+<nav class="navbar">
+
+<div class="logo">
+Martin Okwumuo
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="project.html">Projects</a></li>
+
+<li><a href="dashboards.html">Dashboards</a></li>
+
+<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+
+<li><a href="contacts.html">Contact</a></li>
+
+</ul>
+
+</nav>
+```
+
+<div id="home" class="hero">
+
+<div class="hero-left">
+
+![](assets/images/profile.png){width=280px}
+
+</div>
+
+<div class="hero-right">
+
+# Martin Okwumuo I.
+
+## Data Analyst | Business Intelligence | Operations Analytics
+
+### B.Sc Computer Science | M.Sc Computer Science (In Progress)
+
+I analyze operational and business data to understand performance, identify inefficiencies and transform them into actionable insights through analytics, visualization, and machine learning to make better data-driven decisions.
+
+<div class="hero-buttons">
+
+<a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="button">📄 Resume</a>
+
+<a href="project.html" class="button">📊 Projects</a>
+
+<a href="https://github.com/okwumuo-martin" class="button">💻 GitHub</a>
+
+<a href="https://www.linkedin.com/in/martin-okwumuo-137a3716a" class="button">💼 LinkedIn</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<div class="stats-section">
+
+<div class="stat-box">
+
+<h2>5+</h2>
+
+<p>Portfolio Projects</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>2</h2>
+
+<p>Professional Certifications</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>3+</h2>
+
+<p>Years Business Experience</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>8+</h2>
+
+<p>Technical Tools</p>
+
+</div>
+
+</div>
+
+## Core Technologies
+
+<div class="tech-stack">
+
+<span>Python</span>
+
+<span>R</span>
+
+<span>SQL</span>
+
+<span>Excel</span>
+
+<span>Tableau</span>
+
+<span>Git</span>
+
+<span>Machine Learning</span>
+
+<span>Power BI</span>
+
+</div>
+
+<div class="section-divider"></div>
+
+<div id="about" class="about-section">
+
+# About Me
+
+I am a Computer Science graduate with professional experience in logistics, operations, and business administration. My background has given me first-hand experience solving operational challenges, improving customer service, managing teams, and using data to support better business decisions.
+
+After discovering the power of data analytics, I completed the Google Data Analytics Professional Certificate and the Johns Hopkins Data Science Specialization to strengthen my analytical and technical skills.
+
+Today, I combine operational experience with analytics, SQL, R, Python, Excel, Tableau, and machine learning to transform raw business data into actionable insights that improve efficiency, reduce costs, and support smarter decision-making.
+
+</div>
+
+<div class="section-divider"></div>
+
+<div class="cards">
+
+<div class="card">
+
+## 📊 Data Analytics
+
+Transforming raw data into business insights using SQL, R, Python, Excel and Tableau.
+
+</div>
+
+<div class="card">
+
+## 🚚 Operations Analytics
+
+Applying operational and logistics experience to identify inefficiencies, analyze performance and support better decisions.
+
+</div>
+
+<div class="card">
+
+## 🤖 Machine Learning
+
+Building predictive models and data-driven solutions using statistical and machine learning techniques.
+
+</div>
+
+</div>
+<div class="section-divider"></div>
+
+<div id="skills" class="skills-section">
+
+# Technical Skills
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+### 📊 R Programming
+
+Data analysis, visualization, statistical modeling and reporting.
+
+</div>
+
+<div class="skill-card">
+
+### 🗄 SQL
+
+Data extraction, joins, aggregation and business reporting.
+
+</div>
+
+<div class="skill-card">
+
+### 🐍 Python
+
+Data analysis, automation and machine learning.
+
+</div>
+
+<div class="skill-card">
+
+### 📈 Tableau
+
+Interactive dashboards and business intelligence.
+
+</div>
+
+<div class="skill-card">
+
+### 📑 Microsoft Excel
+
+Advanced Excel, PivotTables, Power Query, dashboards, and business reporting.
+
+</div>
+
+<div class="skill-card">
+
+### 🤖 Machine Learning
+
+Regression, classification, predictive modeling, and model evaluation using R and Python.
+
+</div>
+
+<div class="skill-card">
+
+### 📦 Git & GitHub
+
+Version control and portfolio management.
+
+</div>
+
+<div class="skill-card">
+
+### 📉 Data Visualization
+
+Creating compelling charts and executive dashboards.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<div id="projects" class="projects-section">
+
+# Featured Projects
+
+<div class="project-grid">
+
+<div class="project-card">
+
+## 🚚 U.S. Freight Transportation Analytics
+
+Analyzed 599,529 freight-flow records across the United States using the Bureau of Transportation Statistics' Freight Analysis Framework Version 6.0 (FAF6.0) 2022.
+
+**Tools**
+
+R | Git | GitHub | Tableau
+
+**Data Source**
+U.S Bureau of Transportation Statistics
+<a class="button" href="https://www.bts.gov/faf"
+    target="_blank">
+    View Data Source
+</a>
+
+<a class="button" href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html">
+    View Case Study
+</a>
+
+<a class="button" href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
+    target="_blank">
+    View Dashboard
+</a>
+
+<a class="button"
+   href="https://github.com/okwumuo-martin/U.S_Freight_Transportation_Analytics"
+   target="_blank">
+   View GitHub Repository
+</a>
+
+<p>
+
+This project demonstrates an end-to-end analytics workflow, from data cleaning and transformation in R to interactive business intelligence in Tableau.
+
+</p>
+
+</div>
+
+<div class="project-card">
+
+## 🏦 German Credit Risk Prediction
+
+Predicting loan approval risk using machine learning and an interactive Shiny application.
+
+**Tools**
+
+R • Shiny • Machine Learning • ggplot2
+
+<a class="button" href="#">Live Demo</a>
+
+<a class="button" href="https://github.com/okwumuo-martin">GitHub</a>
+
+</div>
+
+<div class="project-card">
+
+## 📈 Sales Performance Dashboard
+
+Business Intelligence dashboard tracking sales, KPIs, targets, and territory performance.
+
+**Tools**
+
+Power BI • Excel • SQL
+
+<a class="button" href="#">View Dashboard</a>
+
+<a class="button" href="https://github.com/okwumuo-martin">GitHub</a>
+
+</div>
+
+</div>
+
+</div>
+
+```{=html}
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+
+window.onscroll=function(){
+
+scrollFunction();
+
+};
+
+function scrollFunction(){
+
+if(document.body.scrollTop>400||
+
+document.documentElement.scrollTop>400){
+
+document.getElementById("topBtn").style.display="block";
+
+}else{
+
+document.getElementById("topBtn").style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+</script>
+```

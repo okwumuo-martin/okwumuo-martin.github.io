@@ -1,0 +1,51 @@
+# R files
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio
+.Rproj.user/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Python
+_pycache_/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Temporary HTML files
+*_files/
+
+# Project dataset
+projects/us-freight-transportation-analytics/data/
+
+# Reports not needed in portfolio
+projects/us-freight-transportation-analytics/report
+
+#Old/duplicate portfolio files
+rep_proj.Rmd
+replica.Rmd
+replica.html
+
+# Seperate project repository
+Logistics dashboard/
+
+# Empty report
+project/us-freight-transportation-analytics/reports
+
+# Empty dashboard
+dasboards/
+
+# Not needed
+portfolio.Rproj

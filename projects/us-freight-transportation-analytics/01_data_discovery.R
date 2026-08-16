@@ -1,0 +1,33 @@
+install.packages(c(
+  "tidyverse",
+  "readxl",
+  "janitor",
+  "skimr",
+  "DataExplorer",
+  "naniar",
+  "summarytools"
+))
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(skimr)
+library(DataExplorer)
+library(naniar)
+library(summarytools)
+getwd()
+freight <- read.csv("C:/Users/hp/Desktop/portfolio/projects/us-freight-transportation-analytics/data/FAF6.0_State/Raw/FAF6.0_Raw.csv")
+head(freight)
+tail(freight)
+view(freight)
+View(freight)
+dim(freight)
+str(freight)
+names(freight)
+freight <- clean_names(freight)
+names(freight)
+colSums(is.na(freight))
+sum(duplicated(freight))
+summary(freight)
+glimpse(freight)
+create_report(freight)
+skim(freight)

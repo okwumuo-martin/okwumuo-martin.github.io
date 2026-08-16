@@ -1,0 +1,77 @@
+---
+title: ""
+author: ""
+date: ""
+
+output:
+  html_document:
+    theme: flatly
+    css: assets/css/style.css
+    toc: false
+---
+
+<nav class="navbar">
+
+<div class="logo">
+Martin Okwumuo
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="project.html">Projects</a></li>
+
+<li><a href="dashboards.html">Dashboards</a></li>
+
+<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+
+<li><a href="contacts.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="projects-page">
+Projects
+<p class="projects-intro"> A selection of data analytics, business intelligence, operations analytics, and machine learning projects demonstrating my ability to transform data into actionable business insights. </p> <div class="section-divider"></div>
+Featured Project
+<div class="featured-project">
+🚚 U.S. Freight Transportation Analytics
+<p> Analyzed 599,529 U.S. freight records from the Bureau of Transportation Statistics' Freight Analysis Framework (FAF6) to identify freight volume, economic value, transportation-mode patterns, state-level concentration, and high-value commodities. </p> <p> <strong>Tools:</strong> R • Tableau • Excel • Git </p> <p> <strong>Data Source:</strong> U.S. Bureau of Transportation Statistics </p> <div class="project-buttons">
+
+<a href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html" class="project-button">
+View Case Study
+</a>
+
+<a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no" target="_blank" class="project-button secondary">
+View Dashboard
+</a>
+
+<a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard" target="_blank" class="project-button secondary">
+View GitHub
+</a>
+
+</div> </div> <div class="section-divider"></div>
+
+<div class="featured-project"> 
+🏦 German Credit Risk Prediction
+<p> A machine-learning project using the German Credit dataset to analyze credit risk and develop an interactive prediction application using R and Shiny. </p> <p> <strong>Tools:</strong> R • Shiny • Machine Learning • ggplot2 </p> <div class="project-buttons"> <a href="#" class="project-button"> View Project </a>
+
+<a href="https://github.com/okwumuo-martin" target="_blank" class="project-button secondary">
+GitHub
+</a>
+
+</div> </div> <div class="featured-project">
+📈 Sales Performance Dashboard
+<p> A business intelligence dashboard designed to monitor sales performance, key performance indicators, targets, and territory performance. </p> <p> <strong>Tools:</strong> Power BI • Excel • SQL </p> <div class="project-buttons"> <a href="#" class="project-button"> View Dashboard </a>
+
+<a href="https://github.com/okwumuo-martin" target="_blank" class="project-button secondary">
+GitHub
+</a>
+
+</div> </div> </div> <div class="section-divider"></div> <div class="project-cta">
+Interested in working together?
+<p> I'm open to opportunities in Data Analytics, Business Intelligence, and Operations Analytics. </p> <a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="project-button"> 📄 View Resume </a> <a href="contact/contacts.html" class="project-button secondary"> ✉️ Contact Me </a> </div> </div> 

@@ -1,0 +1,56 @@
+---
+title: ""
+author: ""
+date: ""
+
+output:
+  html_document:
+    theme: flatly
+    css: assets/css/style.css
+    toc: false
+---
+
+<nav class="navbar">
+
+<div class="logo">
+Martin Okwumuo
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="project.html">Projects</a></li>
+
+<li><a href="dashboards.html">Dashboards</a></li>
+
+<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+
+<li><a href="contacts.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="section-divider"></div>
+
+<div id="about" class="about-section">
+
+# About Me
+
+I am a Computer Science graduate with professional experience in logistics, operations, and business administration. My background has given me first-hand experience solving operational challenges, improving customer service, managing teams, and using data to support better business decisions.
+
+After discovering the power of data analytics, I completed the Google Data Analytics Professional Certificate and the Johns Hopkins Data Science Specialization to strengthen my analytical and technical skills.
+
+Today, I combine operational experience with analytics, SQL, R, Python, Excel, Tableau, and machine learning to transform raw business data into actionable insights that improve efficiency, reduce costs, and support smarter decision-making.
+
+<a href="project.html" class="button">📊 View My Projects</a>
+
+</div>
+
+</div> </div> </div> <div class="section-divider"></div> <div class="project-cta">
+Interested in working together?
+<p> I'm open to opportunities in Data Analytics, Business Intelligence, and Operations Analytics. </p> <a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="project-button"> 📄 View Resume </a> <a href="contact/contacts.html" class="project-button secondary"> ✉️ Contact Me </a> </div> </div> 
+

@@ -1,0 +1,121 @@
+---
+title: ""
+author: ""
+date: ""
+
+output:
+  html_document:
+    theme: flatly
+    css: assets/css/style.css
+    toc: false
+---
+
+<nav class="navbar">
+
+<div class="logo">
+Martin Okwumuo
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="project.html">Projects</a></li>
+
+<li><a href="dashboards.html">Dashboards</a></li>
+
+<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+
+<li><a href="contacts.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+# Dashboard Gallery
+
+*Explore a selection of dashboards that demonstrate my ability to transform raw data into actionable business insights.*
+
+
+<div class="dashboard-card">
+
+## U.S Freight Transportation Dashboard
+
+![](assets/images/us_tableau.jpg){width=100%}
+
+**Business Problem**
+
+Freight transportation involves large volumes of goods moving between locations through different transportation modes and commodity supply chains.
+
+However, simply measuring the amount of freight being moved does not provide a complete picture of its economic importance. A relatively small physical volume of high-value goods may represent substantially greater economic value than a much larger volume of low-value commodities.
+
+This project therefore examines both freight volume and freight value to understand:
+
+- where freight activity is concentrated;
+- which transportation modes carry the greatest freight volumes;
+- which states account for the greatest freight activity and value;
+- which commodities generate the greatest economic value; and
+- which commodities have particularly high economic value relative to their physical weight.
+
+**Tools**
+
+R | Tableau | Git | GitHub
+
+<a class="button" href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html">
+    View Case Study
+</a>
+
+<a class="button" href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
+    target="_blank">
+    View Dashboard
+</a>
+
+<a class="button"
+   href="https://github.com/okwumuo-martin/U.S_Freight_Transportation_Analytics"
+   target="_blank">
+   View GitHub Repository
+</a>
+
+</div>
+
+<div class="section-divider"></div>
+
+<div class="dashboard-card">
+
+![](assets/images/dashboard2.png){width=100%}
+
+## Logistics Dashboard
+
+**Business Problem**
+
+Track shipment volume, delivery performance, and customer satisfaction.
+
+**Tools**
+
+Excel • Tableau
+
+<a class="button" href="#">View Dashboard</a>
+
+</div>
+
+<div class="section-divider"></div>
+
+<div class="dashboard-card">
+
+![](assets/images/dashboard3.png){width=100%}
+
+## Customer Analytics Dashboard
+
+**Business Problem**
+
+Understand customer behavior, segmentation, and retention.
+
+**Tools**
+
+Tableau • SQL
+
+<a class="button" href="#">View Dashboard</a>
+
+</div>

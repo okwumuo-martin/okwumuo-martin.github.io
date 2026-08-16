@@ -1,0 +1,635 @@
+---
+title: "U.S. Freight Transportation Analytics"
+author: "Martin Okwumuo I."
+date: "2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    css: ../../assets/css/style.css
+---
+
+# Project Overview
+
+## U.S. Freight Transportation Analytics
+
+<div class="project-intro">
+
+### An analysis of freight volume, economic value and transportation patterns across the United States the U.S. Department of Transportation, Bureau of Transportation Statistics FAF6 data.
+
+</div>
+
+<div class="project-intro">
+
+**Tools:** R • Tableau Public • dplyr 
+
+**Dataset:** BTS Freight Analysis Framework Version 6 (FAF6)  
+
+**Analysis Year:** 2022
+
+</div>
+
+This project analyzes freight data across the United States using data from the Freight Analysis Framework Version 6 (FAF6) developed by the U.S. Department of Transportation's Bureau of Transportation Statistics.
+
+The analysis examines freight activity across 51 states, 42 commodity groups and multiple transportation modes, with a focus on understanding the relationship between physical freight volume and economic value.
+
+The project combines R for data preparation and analysis with Tableau Public for interactive business intelligence and visualization.
+
+# Executive Summary
+
+The analysis covers 599,529 freight records, representing approximately 19.63 billion short tons of freight and $24.77 trillion in freight value, measured in 2022 constant dollars.
+
+The analysis reveals that physical freight volume and economic value do not necessarily follow the same patterns. Hight freight volume does not necessarily translate to high economic value.
+
+Key findings:
+
+- Truck transportation accounts for 62.1% of total freight volume and 70.8% of total freight value.
+- Texas is the leading state by both freight volume and freight value.
+- Natural gas and other fossil products represent the largest commodity group by physical freight volume.
+- Electronics generate the highest total freight value among the commodity groups analyzed.
+- High-value commodities such as electronics and machinery have substantially greater value relative to their physical weight than heavier commodities such as gravel and fossil products.
+- State-level analysis also shows meaningful differences between freight volume and freight value density.
+
+# Project Data at a Glance
+
+<div class="kpi-grid">
+
+<div class="kpi-card">
+<div class="kpi-number">599,529</div>
+<div class="kpi-label">**Freight-flow records**</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-number">19.63B</div>
+<div class="kpi-label">Short tons of freight</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-number">$24.77T</div>
+<div class="kpi-label">**Freight value**</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-number">51</div>
+<div class="kpi-label">**States covered**</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-number">42</div>
+<div class="kpi-label">**Commodity groups**</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-number">62.1%</div>
+<div class="kpi-label">**Truck volume share**</div>
+</div>
+
+</div>
+
+# Business Problem
+
+Freight transportation involves large volumes of goods moving between locations through different transportation modes and commodity supply chains.
+
+However, simply measuring the amount of freight being moved does not provide a complete picture of its economic importance. A relatively small physical volume of high-value goods may represent substantially greater economic value than a much larger volume of low-value commodities.
+
+This project therefore examines both freight volume and freight value to understand:
+
+- where freight activity is concentrated;
+- which transportation modes carry the greatest freight volumes;
+- which states account for the greatest freight activity and value;
+- which commodities generate the greatest economic value; and
+- which commodities have particularly high economic value relative to their physical weight.
+
+# Business Questions
+
+The analysis was designed to answer six key questions:
+
+1. How much freight moves across the United States?
+2. Which transportation mode carries the most freight?
+3. Which commodities generate the highest economic value?
+4. Which states move the largest freight volumes?
+5. Which commodities are high-value but relatively low-weight?
+6. How can users interactively explore freight patterns across states, commodities, transportation modes and trade types?
+
+# Data Source
+
+## Freight Analysis Framework Version 6 (FAF6)
+The primary dataset used in this project is the Freight Analysis Framework Version 6 (FAF6) Commodity Flow Database from the U.S. Department of Transportation's Bureau of Transportation Statistics.
+
+The dataset provides freight-flow information across U.S. domestic locations, imports and exports including information about:
+
+- origin and destination;
+- transportation mode;
+- commodity;
+- trade type;
+- freight weight; and
+- freight value.
+
+According to the FAF6 data dictionary:
+
+- Freight weight is reported in thousand short tons.
+- Freight value is reported in million dollars.
+- Freight value is expressed in 2022 constant dollars.
+
+<a class="button" href="https://www.bts.gov/faf"
+    target="_blank">
+    View Data Source
+</a>
+
+# Data Preparation
+
+The raw FAF6 data contains coded values for several important analytical dimensions. These codes were transformed into meaningful labels using the accompanying FAF6 reference tables.
+
+For example:
+
+- State codes were mapped to state_names.
+- Transportation-mode codes were mapped to transportation_mode description.
+- Commodity codes were mapped to commodity_names.
+
+The resulting analytical dataset, 'freight_business', was then used for exploratory analysis and visualization in Tableau Public.
+
+# Project Workflow
+
+The project followed a structured analytics workflow:
+
+<div class="process-grid">
+<div class="process-card">
+
+1. Data Collection  
+Obtained the FAF6 freight-flow dataset and supporting reference tables.
+
+</div>
+
+<div class="process-card">
+
+2. Data Cleaning  
+Inspected the dataset structure, missing values and duplicate records. Clean and transform the FAF6 dataset using R. Join reference tables to convert coded fields into readable state, commodity, transportation mode, and trade type labels.
+
+</div>
+
+<div class="process-card">
+
+3. Define the Problem
+Identify where freight activity is concentrated, which transportation modes dominate, and which commodities generate the greatest economic value.
+
+</div>
+
+<div class="process-card">
+
+4. Data Transformation  
+Mapped coded states, commodities and transportation modes to meaningful labels.
+
+</div>
+
+<div class="process-card">
+
+5. Exploratory Analysis
+Calculate freight volume, economic value, market shares, value density, and rankings across states, commodities, transportation modes, and trade types.
+
+</div>
+
+<div class="process-card">
+
+6. Visualize Insights
+Build interactive Tableau visualizations and an executive dashboard that allows users to explore freight patterns using filters and chart interactions.
+
+</div>
+
+<div class="process-card">
+
+7. Business Interpretation  
+Translated analytical results into findings and potential business implications.
+
+</div>
+</div>
+
+## Data Quality Checks
+
+Several checks were performed during preparation:
+
+- Dataset dimensions were inspected.
+- Missing values were examined.
+- Duplicate records were checked.
+- Reference tables were validated.
+- Analytical variables were reviewed before exporting the cleaned dataset.
+
+The final source dataset contained 599,529 records and 11 original variables before the analytical transformations and reference-table joins used to create the business-ready dataset.
+
+# Exploratory Analysis
+
+The exploratory analysis examined freight activity across four major dimensions:
+
+1. Transportation mode
+2. Geographic distribution
+3. Commodity composition
+4. Economic value relative to freight weight
+
+This analysis was performed in R before the cleaned dataset was exported to Tableau Public for interactive visualization.
+
+## Freight by Transportation Mode
+
+Transportation mode analysis shows a strong dependence on trucking within the freight network.
+
+Truck transportation accounts for approximately 62.1% of total freight volume and 70.8% of total freight value.
+
+Other important modes include pipeline, rail, and multiple modes and mail.
+
+An important difference appears when comparing freight volume with freight value. Air transportation represents only approximately 0.04% of freight volume, but accounts for approximately 2.81% of freight value.
+
+This indicates that physical freight volume and economic value can differ substantially across transportation modes.
+
+### Transportation Mode Summary
+
+| Transportation Mode | Volume Share | Value Share |
+|:---|---:|---:|
+| Truck | 62.1% | 70.8% |
+| Pipeline | 19.0% | 7.09% |
+| Rail | 9.31% | 4.09% |
+| Multiple modes & mail | 5.64% | 12.9% |
+| Water | 2.75% | 1.19% |
+| Other and unknown | 0.72% | 0.90% |
+| No domestic mode | 0.36% | 0.19% |
+| Air | 0.04% | 2.81% |
+
+The comparison highlights that transportation modes should not be evaluated solely by physical freight volume. Modes carrying relatively small physical volumes can still account for a disproportionately large share of freight value.
+
+# Geographic Analysis
+
+The state-level analysis examined both the physical volume and economic value of freight associated with each state.
+
+Texas emerged as the leading state on both measures, accounting for approximately 2.77 billion short tons of freight and $3.25 trillion in freight value.
+
+California ranked second by freight volume with approximately 1.37 billion short tons, while also generating approximately $2.92 trillion in freight value.
+
+The rankings change when economic value rather than physical volume is considered. For example, North Dakota appears among the top states by freight volume but does not appear among the top ten states by freight value. Conversely, New Jersey ranks among the top ten states by freight value despite not appearing among the top ten by freight volume.
+
+This demonstrates that geographic freight importance can look different depending on whether it is measured by physical volume or economic value.
+
+### Top States by Freight Volume
+
+| Rank | State | Freight Volume |
+|---:|:---|---:|
+| 1 | Texas | 2.77B short tons |
+| 2 | California | 1.37B |
+| 3 | Louisiana | 964.1M |
+| 4 | Illinois | 796.8M |
+| 5 | Pennsylvania | 774.1M |
+| 6 | Ohio | 637.4M |
+| 7 | Florida | 635.0M |
+| 8 | New York | 558.0M |
+| 9 | Indiana | 553.0M |
+| 10 | North Dakota | 523.7M |
+
+### Top States by Freight Value
+
+| Rank | State | Freight Value |
+|---:|:---|---:|
+| 1 | Texas | $3.25T |
+| 2 | California | $2.92T |
+| 3 | Illinois | $1.24T |
+| 4 | New York | $1.06T |
+| 5 | Ohio | $905.3B |
+| 6 | Florida | $900.9B |
+| 7 | Pennsylvania | $893.0B |
+| 8 | New Jersey | $885.1B |
+| 9 | Georgia | $840.4B |
+| 10 | Michigan | $817.4B |
+
+# Commodity Analysis
+
+Commodity analysis revealed one of the most important findings in the project. the commodities moving in the greatest physical volumes are not necessarily those generating the greatest economic value.
+
+Natural gas and other fossil products represent the largest commodity group by physical freight volume, with approximately 3.08 billion short tons.
+
+However, electronics generate the highest total freight value, despite accounting for only approximately 151 million short tons.
+
+This difference illustrates why freight analysis should consider both physical volume and economic value.
+
+### Highest-Value Commodities
+
+| Rank | Commodity | Freight Volume | Freight Value |
+|---:|:---|---:|---:|
+| 1 | Electronics | 151.1M | $2.48T |
+| 2 | Mixed freight | 478.3M | $1.88T |
+| 3 | Motorized vehicles | 256.4M | $1.85T |
+| 4 | Pharmaceuticals | 43.3M | $1.66T |
+| 5 | Machinery | 144.1M | $1.47T |
+| 6 | Natural gas & other fossil products | 3.08B | $1.13T |
+| 7 | Misc. mfg. products | 152.1M | $1.10T |
+| 8 | Plastics/rubber | 298.3M | $978.7B |
+| 9 | Gasoline | 1.13B | $977.3B |
+| 10 | Other foodstuffs | 817.5M | $945.3B |
+
+### Highest-Volume Commodities
+
+| Rank | Commodity | Freight Volume |
+|---:|:---|---:|
+| 1 | Natural gas & other fossil products | 3.08B short tons |
+| 2 | Gravel | 2.25B |
+| 3 | Nonmetal min. products | 1.66B |
+| 4 | Gasoline | 1.13B |
+| 5 | Crude petroleum | 1.04B |
+| 6 | Cereal grains | 963.1M |
+| 7 | Other foodstuffs | 817.5M |
+| 8 | Fuel oils | 780.8M |
+| 9 | Waste/scrap | 674.8M |
+| 10 | Other ag products | 651.9M |
+
+# Freight Value Density
+
+To further investigate the relationship between physical freight volume and economic importance, a value-density measure was calculated.
+
+Value density was calculated as the freight value divided by freight weight, with the FAF6 units converted to dollars per short ton.
+
+Several commodities showed substantially higher economic value relative to their physical weight.
+
+### Selected High-Value / Low-Weight Commodities
+
+| Commodity | Freight Volume | Freight Value | Approx. Value per Short Ton |
+|:---|---:|---:|---:|
+| Electronics | 151.1M | $2.48T | $16,400 |
+| Machinery | 144.1M | $1.47T | $10,200 |
+| Misc. mfg. products | 152.1M | $1.10T | $7,240 |
+| Motorized vehicles | 256.4M | $1.85T | $7,220 |
+| Meat/seafood | 125.0M | $565.5B | $4,520 |
+| Articles-base metal | 143.6M | $612.8B | $4,270 |
+| Mixed freight | 478.3M | $1.88T | $3,930 |
+| Plastics/rubber | 298.3M | $978.7B | $3,280 |
+| Chemical products | 197.4M | $593.3B | $3,010 |
+| Alcoholic beverages | 144.5M | $316.2B | $2,190 |
+
+## Key Insight
+
+The comparison between freight volume and freight value demonstrates that physical freight activity and economic importance are not equivalent measures.
+
+For example, natural gas and other fossil products account for approximately 3.08 billion short tons, making them the largest commodity group by physical volume. Electronics, however, account for approximately 151 million short tons while generating approximately $2.48 trillion in freight value.
+
+Electronics therefore illustrate how a relatively small physical freight volume can represent substantial economic value.
+
+This distinction is important for transportation planning, logistics strategy and infrastructure decision-making because high-volume freight and high-value freight can create different operational priorities.
+
+# State Freight Value Density
+
+The analysis also examined the economic value associated with each unit of freight weight at the state level.
+
+Massachusetts recorded the highest relative freight value density in the analysis at approximately $2,406 per short ton, followed by California at approximately $2,127 per short ton and New Jersey at approximately $2,014 per short ton.
+
+This measure provides a different perspective from total freight volume or total freight value. A state may have a relatively modest physical freight volume while still handling freight with comparatively high economic value.
+
+The value-density measure was therefore used as a supporting analytical indicator rather than as a standalone measure of overall freight importance.
+
+# Interactive Tableau Dashboard
+
+The analysis was transformed into an interactive Tableau Public dashboard to allow users to explore freight patterns across states, commodities, transportation modes and trade types.
+
+The dashboard provides an executive-level overview of:
+
+- Total freight volume
+- Total freight value
+- Freight distribution across states
+- Commodity-level freight activity
+- Transportation-mode patterns
+- High-value / low-weight commodities
+- Freight value by trade type
+
+The dashboard below provides an interactive view of U.S. freight activity. Users can filter the analysis by state, commodity, transportation mode and trade type and also by selecting filters or clicking on visualizations to investigate specific freight patterns. The view full screen button at the bottom right ensures a greater experience on the dashboard. 
+
+<div class="tableau-container">
+
+<iframe
+  src="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no&:embed=true"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="project-buttons">
+
+<a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
+   target="_blank"
+   class="project-button">
+   View Full Tableau Dashboard
+</a>
+
+<a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard"
+   target="_blank"
+   class="project-button secondary">
+   View GitHub Repository
+</a>
+
+</div>
+
+## How to Use the Dashboard
+
+The dashboard is designed for interactive exploration.
+
+### 1. Use the filters
+
+Use the filters at the top of the dashboard to select:
+
+- State
+- Commodity
+
+
+### 2. Explore the charts
+
+Select individual states, commodities or transportation modes within the visualizations to investigate their contribution to overall freight activity and click again to reset dashboard.
+
+### 3. Compare volume and value
+
+Use the freight-volume and freight-value visualizations together to identify areas where physical freight activity differs from economic importance.
+
+### 4. Explore high-value freight
+
+Use the high-value/low-weight visualization to identify commodity groups with relatively high economic value compared with their physical freight volume.
+
+
+# Key Findings
+
+The analysis identified several important patterns in the U.S. freight system.
+
+## 1. Truck transportation dominates freight activity
+Truck transportation accounts for approximately 62.1% of total freight volume and 70.8% of total freight value.
+
+This makes trucking the dominant transportation mode in the analyzed freight network.
+
+However, the comparison between volume and value shows that transportation modes should not be evaluated solely on physical volume.
+
+---
+
+## 2. Texas is the leading freight state
+
+Texas ranks first in both freight volume and freight value.
+
+The state accounts for approximately:
+
+- 2.77 billion short tons of freight
+- $3.25 trillion in freight value
+
+California follows with approximately 1.37 billion short tons and $2.92 trillion in freight value.
+
+---
+
+## 3. Freight volume and economic value tell different stories
+
+Natural gas and other fossil products represent the largest commodity group by physical volume at approximately 3.08 billion short tons.
+
+However, electronics generate the highest total freight value at approximately $2.48 trillion, despite accounting for only approximately 151 million short tons.
+
+This demonstrates that the largest freight flows by weight are not necessarily the most economically valuable.
+
+---
+
+## 4. Electronics have particularly high value density
+
+Electronics have an estimated freight value density of approximately $16,400 per short ton.
+
+Machinery follows at approximately $10,200 per short ton.
+
+By comparison, heavy commodities such as gravel have dramatically lower value relative to their physical weight.
+
+This difference highlights the importance of considering both freight volume and economic value when evaluating transportation activity.
+
+---
+
+## 5. State freight patterns differ depending on the metric
+
+Texas leads in both total volume and total value, but the state rankings change when freight value is considered relative to physical weight.
+
+Massachusetts records the highest relative state-level value density at approximately $2,406 per short ton, followed by California at approximately $2,127 and New Jersey at approximately $2,014.
+
+This provides an additional perspective on the economic characteristics of freight moving through different states.
+
+# Business Implications
+
+The findings have several potential implications for transportation planning and logistics decision making.
+
+### Infrastructure planning
+
+High-volume freight corridors require infrastructure capable of supporting substantial physical freight movement. The dominance of trucking highlights the importance of road transportation within the overall freight network.
+
+### Economic prioritization
+
+Freight value provides a different perspective from physical volume. High-value commodities can have significant economic importance despite representing relatively small physical volumes.
+
+### Logistics strategy
+
+Understanding the relationship between commodity value and physical weight can help logistics organizations evaluate transportation requirements, handling priorities and network characteristics.
+
+### State-level planning
+
+Differences between freight volume, total freight value and value density suggest that states may have different freight priorities depending on the characteristics of the commodities moving through their networks.
+
+### Data-driven decision-making
+
+Combining multiple measures rather than relying on a single KPI provides a more comprehensive understanding of freight activity.
+
+# Recommendations
+
+Based on the analysis, several recommendations can be considered:
+
+1. Monitor freight volume and freight value together. 
+Physical freight volume alone may not adequately represent economic importance.
+
+2. Prioritize high-value freight analysis.
+Commodities such as electronics, machinery and motorized vehicles demonstrate substantially higher value relative to their physical weight.
+
+3. Use mode-specific analysis when evaluating freight networks.
+Trucking dominates freight volume, while some lower-volume modes account for disproportionately large shares of freight value.
+
+4. Evaluate state freight patterns using multiple metrics.
+Total volume, total value and value density provide different perspectives on state-level freight activity.
+
+5. Use interactive analytics for further investigation.
+The Tableau dashboard allows users to filter the data and investigate specific states, commodities, transportation modes and trade types.
+   
+# Conclusion
+
+This project demonstrates how large, multidimensional freight data can be transformed into actionable business insights.
+
+The analysis shows that freight volume alone does not tell the complete story. Transportation mode, geographic location, commodity type and economic value provide complementary perspectives that can reveal patterns that would otherwise remain hidden.
+
+By combining R for data preparation and analysis with Tableau for interactive business intelligence, the project converts a large government dataset into an accessible analytical tool for exploring freight activity across the United States.
+   
+# Technical Skills Demonstrated
+
+### Data Analysis
+
+- R
+- dplyr
+- Data cleaning and transformation
+- Grouped aggregation
+- Missing-value analysis
+- Duplicate detection
+- Derived metrics
+- Exploratory data analysis
+- Statistical and descriptive analysis
+
+### Data Visualization & Business Intelligence
+
+- Tableau Public
+- Interactive dashboards development
+- KPI design
+- Filters and dashboard actions
+- Scatter plots
+- Reference lines
+- Tooltips
+- Geographic and categorical analysis
+- Business storytelling and insight communication
+
+### Data Engineering / Preparation
+
+- Joining reference and look-up tables
+- Mapping coded values to business-friendly labels
+- Preparing analysis-ready datasets
+- Exporting cleaned data for visualization
+
+### Analytical Techniques
+
+- Freight volume analysis
+- Economic value analysis
+- Transportation-mode analysis
+- State-level comparison
+- Commodity analysis
+- Value-density analysis
+
+# Tools & Technologies
+
+<div class="tech-stack">
+
+<span>R</span>
+
+<span>R Markdown</span>
+
+<span>ggplot2</span>
+
+<span>Tableau</span>
+
+<span>Excel</span>
+
+<span>Git</span>
+
+<span>GitHub</span>
+
+</div>
+
+# Project Takeaway
+
+This project demonstrates an end-to-end analytics workflow using a large real-world government dataset.
+
+Starting with more than 599,000 freight records, I transformed coded FAF6 data into an analysis-ready dataset, performed exploratory and comparative analysis in R, and developed an interactive Tableau dashboard for business users.
+
+The project demonstrates my ability to combine technical data skills, business understanding, visualization, and analytical storytelling to turn complex datasets into actionable insights.
+
+**Data Source**
+U.S. Department of Transportation, Bureau of Transportation Statistics — Freight Analysis Framework (FAF6)
+
+</div> </div> </div> <div class="section-divider"></div> <div class="project-cta">
+Interested in working together?
+<p> I'm open to opportunities in Data Analytics, Business Intelligence, and Operations Analytics. </p> <a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="project-button"> 📄 View Resume </a> <a href="contact/contacts.html" class="project-button secondary"> ✉️ Contact Me </a> </div> </div> 
+
+Okwumuo Martin I. 20226

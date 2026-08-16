@@ -1,0 +1,142 @@
+---
+title: ""
+author: ""
+date: ""
+
+output:
+  html_document:
+    theme: flatly
+    css: assets/css/style.css
+    toc: false
+---
+
+<nav class="navbar">
+
+<div class="logo">
+Martin Okwumuo
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="project.html">Projects</a></li>
+
+<li><a href="dashboards.html">Dashboards</a></li>
+
+<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+
+<li><a href="contacts.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="contact-page">
+
+<h1>Let's Connect</h1>
+
+<p class="contact-intro">
+Interested in data analytics, business intelligence, or operations analytics?
+I'd be happy to connect and discuss opportunities, projects, or collaborations.
+</p>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="contact-icon">📧</div>
+
+<h2>Email</h2>
+
+<p>
+For professional enquiries, opportunities, and collaborations.
+</p>
+
+<a href="mailto:okwumuo.martin@gmail.com" class="contact-button">
+Email Me
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">💼</div>
+
+<h2>LinkedIn</h2>
+
+<p>
+Connect with me professionally and view my career background.
+</p>
+
+<a href="https://www.linkedin.com/in/martin-okwumuo-137a3716a"
+target="_blank"
+class="contact-button">
+LinkedIn
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">💻</div>
+
+<h2>GitHub</h2>
+
+<p>
+Explore my data analytics projects, code, and technical work.
+</p>
+
+<a href="https://github.com/okwumuo-martin"
+target="_blank"
+class="contact-button">
+View GitHub
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-message">
+
+<h2>What I'm Interested In</h2>
+
+<div class="interest-list">
+
+<span>Data Analytics</span>
+
+<span>Business Intelligence</span>
+
+<span>Operations Analytics</span>
+
+<span>Business Analysis</span>
+
+<span>Data Science</span>
+
+<span>Machine Learning</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-cta">
+
+<h2>Let's Talk</h2>
+
+<p>
+If you're looking for someone who combines technical analytics skills
+with practical business and operations experience, feel free to reach out.
+</p>
+
+<a href="mailto:okwumuo.martin@gmail.com.com" class="button">
+📧 Get In Touch
+</a>
+
+</div>
+
+</div>
