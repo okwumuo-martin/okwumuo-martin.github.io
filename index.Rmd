@@ -64,6 +64,9 @@ I analyze operational and business data to understand performance, identify inef
 
 <a href="https://www.linkedin.com/in/martin-okwumuo-137a3716a" class="button">💼 LinkedIn</a>
 
+# Target Roles
+**Data Analyst** | **Business Intelligence Analyst** | **Operations Data Analyst** | **Business Analyst** | **Supply Chain** / **Logistics Analyst** | **Junior Data Scientist**
+
 </div>
 
 </div>
@@ -141,6 +144,8 @@ I am a Computer Science graduate with professional experience in logistics, oper
 After discovering the power of data analytics, I completed the Google Data Analytics Professional Certificate and the Johns Hopkins Data Science Specialization to strengthen my analytical and technical skills.
 
 Today, I combine operational experience with analytics, SQL, R, Python, Excel, Tableau, and machine learning to transform raw business data into actionable insights that improve efficiency, reduce costs, and support smarter decision-making.
+
+My projects demonstrate practical experience in exploratory data analysis, business intelligence dashboards, predictive analytics, machine learning, and operational analytics.
 
 </div>
 

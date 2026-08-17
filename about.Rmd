@@ -46,6 +46,8 @@ After discovering the power of data analytics, I completed the Google Data Analy
 
 Today, I combine operational experience with analytics, SQL, R, Python, Excel, Tableau, and machine learning to transform raw business data into actionable insights that improve efficiency, reduce costs, and support smarter decision-making.
 
+My projects demonstrate practical experience in exploratory data analysis, business intelligence dashboards, predictive analytics, machine learning, and operational analytics.
+
 <a href="project.html" class="button">📊 View My Projects</a>
 
 </div>
