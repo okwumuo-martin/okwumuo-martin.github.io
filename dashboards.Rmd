@@ -38,12 +38,7 @@ Martin Okwumuo
 
 *Explore a selection of dashboards that demonstrate my ability to transform raw data into actionable business insights.*
 
-
-<div class="dashboard-card">
-
 ## U.S Freight Transportation Dashboard
-
-![](assets/images/us_tableau.jpg){width=100%}
 
 **Business Problem**
 
@@ -63,22 +58,42 @@ This project therefore examines both freight volume and freight value to underst
 
 R | Tableau | Git | GitHub
 
-<a class="button" href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html">
-    View Case Study
+<div class="tableau-container">
+
+<iframe
+  src="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no&:embed=true"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="project-buttons">
+
+<a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
+   target="_blank"
+   class="project-button">
+   View Full Tableau Dashboard
 </a>
 
-<a class="button" href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
-    target="_blank">
-    View Dashboard
-</a>
-
-<a class="button"
-   href="https://github.com/okwumuo-martin/U.S_Freight_Transportation_Analytics"
-   target="_blank">
+<a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard"
+   target="_blank"
+   class="project-button secondary">
    View GitHub Repository
 </a>
 
+<a href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html"
+   target="_blank"
+   class="project-button">
+    View Case Study
+</a>
+
 </div>
+
+
+
 
 <div class="section-divider"></div>
 

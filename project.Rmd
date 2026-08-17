@@ -74,4 +74,4 @@ GitHub
 
 </div> </div> </div> <div class="section-divider"></div> <div class="project-cta">
 Interested in working together?
-<p> I'm open to opportunities in Data Analytics, Business Intelligence, and Operations Analytics. </p> <a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="project-button"> 📄 View Resume </a> <a href="contact/contacts.html" class="project-button secondary"> ✉️ Contact Me </a> </div> </div> 
+<p> I'm open to opportunities in Data Analytics, Business Intelligence, and Operations Analytics. </p> <a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="project-button"> 📄 View Resume </a> <a href="contacts.html" class="project-button secondary"> ✉️ Contact Me </a> </div> </div> 
