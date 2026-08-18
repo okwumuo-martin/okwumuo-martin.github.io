@@ -26,7 +26,7 @@ Martin Okwumuo
 
 <li><a href="dashboards.html">Dashboards</a></li>
 
-<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+<li><a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf">Resume</a></li>
 
 <li><a href="contacts.html">Contact</a></li>
 
@@ -135,6 +135,7 @@ with practical business and operations experience, feel free to reach out.
 
 <a href="mailto:okwumuo.martin@gmail.com.com" class="button">
 📧 Get In Touch
+
 </a>
 
 </div>

@@ -27,7 +27,7 @@ Martin Okwumuo
 
 <li><a href="dashboards.html">Dashboards</a></li>
 
-<li><a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf">Resume</a></li>
+<li><a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf">Resume</a></li>
 
 <li><a href="contacts.html">Contact</a></li>
 
@@ -56,7 +56,7 @@ I analyze operational and business data to understand performance, identify inef
 
 <div class="hero-buttons">
 
-<a href="resume/Martin Ifeanyi Okwumuo Data CV.pdf" class="button">📄 Resume</a>
+<a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf" class="button">📄 Resume</a>
 
 <a href="project.html" class="button">📊 Projects</a>
 
