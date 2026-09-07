@@ -26,7 +26,7 @@ Martin Okwumuo
 
 <li><a href="dashboards.html">Dashboards</a></li>
 
-<li><a href="resume/Martin_Okwumuo_Data_Updated_CV.pdf">Resume</a></li>
+<li><a href="resume/Martin_Okwumuo_Updated_CV.pdf">Resume</a></li>
 
 <li><a href="contacts.html">Contact</a></li>
 
@@ -133,7 +133,7 @@ If you're looking for someone who combines technical analytics skills
 with practical business and operations experience, feel free to reach out.
 </p>
 
-<a href="mailto:okwumuo.martin@gmail.com.com" class="button">
+<a href="mailto:okwumuo.martin@gmail.com" class="button">
 📧 Get In Touch
 
 </a>

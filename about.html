@@ -390,7 +390,7 @@ display: none;
 <a href="dashboards.html">Dashboards</a>
 </li>
 <li>
-<a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf">Resume</a>
+<a href="resume/Martin_Okwumuo_Update_CV.df">Resume</a>
 </li>
 <li>
 <a href="contacts.html">Contact</a>
@@ -434,12 +434,51 @@ Interested in working together?
 I’m open to opportunities in Data Analytics, Business Intelligence, and
 Operations Analytics.
 </p>
-<a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf" class="project-button">
+<a href="resume/Martin_Okwumuo_Updated_CV.pdf" class="project-button">
 📄 View Resume </a>
 <a href="contacts.html" class="project-button secondary"> ✉️ Contact Me
 </a>
 </div>
 </div>
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+
+window.onscroll=function(){
+
+scrollFunction();
+
+};
+
+function scrollFunction(){
+
+if(document.body.scrollTop>400||
+
+document.documentElement.scrollTop>400){
+
+document.getElementById("topBtn").style.display="block";
+
+}else{
+
+document.getElementById("topBtn").style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+</script>
 
 
 
