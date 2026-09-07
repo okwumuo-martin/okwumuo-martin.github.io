@@ -398,7 +398,7 @@ display: none;
 </ul>
 </nav>
 <div class="projects-page">
-Projects
+<strong> Projects </strong>
 <p class="projects-intro">
 A selection of data analytics, business intelligence, operations
 analytics, and machine learning projects demonstrating my ability to
@@ -407,9 +407,9 @@ transform data into actionable business insights.
 <div class="section-divider">
 
 </div>
-Featured Project
+<strong>Featured Project</strong>
 <div class="featured-project">
-🚚 U.S. Freight Transportation Analytics
+<strong>U.S. Freight Transportation Analytics</strong>
 <p>
 Analyzed 599,529 U.S. freight records from the Bureau of Transportation
 Statistics’ Freight Analysis Framework (FAF6) to identify freight
@@ -425,44 +425,69 @@ concentration, and high-value commodities.
 <div class="project-buttons">
 <p><a href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html" class="project-button">
 View Case Study </a></p>
-<p><a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no" target="_blank" class="project-button secondary">
+<p><a href="projects/us-freight-transportation-analytics/EDA_Report_US_Freight.html" class="project-button">
+View EDA Report </a></p>
+<p><a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no" target="_blank" class="project-button">
 View Dashboard </a></p>
-<p><a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard" target="_blank" class="project-button secondary">
-View GitHub </a></p>
+<p><a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard" target="_blank" class="project-button">
+View GitHub Repository </a></p>
 </div>
 </div>
 <div class="section-divider">
 
 </div>
 <div class="featured-project">
-🏦 German Credit Risk Prediction
+<strong>Natural Language Next-word Prediction Model</strong>
+<p>
+A natural language next-word prediction model accompanied by an app
+which predicts the most likely next word when a user enters a word or a
+sentence; the same category of “invisible AI” behind phone keyboards,
+search auto-complete, and drafting assistants entirely from raw text,
+with no external APIs or pre-trained language models.
+</p>
+<p>
+<strong>Tools:</strong> R • Shiny • GitHub • Git
+</p>
+<p>
+<strong>Data Source:</strong> Swiftkey/Coursera
+</p>
+<div class="project-buttons">
+<p><a href="https://snndvl-martin-okwumuo.shinyapps.io/Text-Prediction-Model" target="_blank" class="project-button">
+View App </a></p>
+<p><a href="https://snndvl-martin-okwumuo.shinyapps.io/slide_deck" target="_blank" class="project-button">
+View Slide </a></p>
+<p><a href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/Next_Word_Model_Case_Study.html" class="project-button">
+View Case Study </a></p>
+<p><a href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/EDA_Report.html" class="project-button">
+View EDA Report </a></p>
+<p><a href="https://github.com/okwumuo-martin/Text-Prediction-Model" target="_blank" class="project-button">
+View GitHub Repository </a></p>
+</div>
+</div>
+<div class="section-divider">
+
+</div>
+<div class="featured-project">
+<strong>German Credit Loan Eligibility Prediction Model</strong>
 <p>
 A machine-learning project using the German Credit dataset to analyze
-credit risk and develop an interactive prediction application using R
-and Shiny.
+credit risk and develop an interactive loan eligibility prediction
+application using R and Shiny.
 </p>
 <p>
 <strong>Tools:</strong> R • Shiny • Machine Learning • ggplot2
 </p>
-<div class="project-buttons">
-<p><a href="#" class="project-button"> View Project </a></p>
-<p><a href="https://github.com/okwumuo-martin" target="_blank" class="project-button secondary">
-GitHub </a></p>
-</div>
-</div>
-<div class="featured-project">
-📈 Sales Performance Dashboard
 <p>
-A business intelligence dashboard designed to monitor sales performance,
-key performance indicators, targets, and territory performance.
-</p>
-<p>
-<strong>Tools:</strong> Power BI • Excel • SQL
+<strong>Data Source:</strong> German Credit Dataset in R
 </p>
 <div class="project-buttons">
-<p><a href="#" class="project-button"> View Dashboard </a></p>
-<p><a href="https://github.com/okwumuo-martin" target="_blank" class="project-button secondary">
-GitHub </a></p>
+<p><a class="project-button" href="https://snndvl-martin-okwumuo.shinyapps.io/Loan_eligibility_predictor" target="_blank"> View App </a></p>
+<p><a class="project-button" href="https://snndvl-martin-okwumuo.shinyapps.io/Loan_predictor_presentation" target="_blank"> View Slide </a></p>
+<p><a class="project-button" href="projects/German-Credit-Predictor/German_Credit_Case_Study.html">
+View Case Study </a></p>
+<p><a class="project-button" href="projects/German-Credit-Predictor/EDA_Report_German_Credit.html">
+View EDA Report </a></p>
+<p><a class="project-button" href="https://github.com/okwumuo-martin/German-Credit-Predictor" target="_blank"> View GitHub Repository </a></p>
 </div>
 </div>
 </div>
@@ -476,11 +501,49 @@ I’m open to opportunities in Data Analytics, Business Intelligence, and
 Operations Analytics.
 </p>
 <a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf" class="project-button">
-📄 View Resume </a>
-<a href="contacts.html" class="project-button secondary"> ✉️ Contact Me
-</a>
+📄 View Resume </a> <a href="contacts.html" class="project-button"> ✉️
+Contact Me </a>
 </div>
 </div>
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+
+window.onscroll=function(){
+
+scrollFunction();
+
+};
+
+function scrollFunction(){
+
+if(document.body.scrollTop>400||
+
+document.documentElement.scrollTop>400){
+
+document.getElementById("topBtn").style.display="block";
+
+}else{
+
+document.getElementById("topBtn").style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+</script>
 
 
 

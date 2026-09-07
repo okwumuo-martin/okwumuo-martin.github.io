@@ -27,7 +27,7 @@ Martin Okwumuo
 
 <li><a href="dashboards.html">Dashboards</a></li>
 
-<li><a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf">Resume</a></li>
+<li><a href="resume/Martin_Okwumuo_Updated_CV.pdf">Resume</a></li>
 
 <li><a href="contacts.html">Contact</a></li>
 
@@ -48,15 +48,14 @@ Martin Okwumuo
 
 # Martin Okwumuo I.
 
-## Data Analyst | Business Intelligence | Operations Analytics
+## Data Scientist | Data Analyst | Business Intelligence | Operations Analytics
 
-### B.Sc Computer Science | M.Sc Computer Science (In Progress)
 
-I analyze operational and business data to understand performance, identify inefficiencies and transform them into actionable insights through analytics, visualization, and machine learning to make better data-driven decisions.
+I analyze operational and business data to understand performance, identify inefficiencies and transform them into actionable insights through analytics, visualization to make better data-driven decisions. I equally build models using data and machine learning techniques to improve performance and efficiency. 
 
 <div class="hero-buttons">
 
-<a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf" class="button">📄 Resume</a>
+<a href="resume/Martin_Okwumuo_Updated_CV.pdf" class="button">📄 Resume</a>
 
 <a href="project.html" class="button">📊 Projects</a>
 
@@ -79,7 +78,7 @@ I analyze operational and business data to understand performance, identify inef
 
 <div class="stat-box">
 
-<h2>5+</h2>
+<h2>3+</h2>
 
 <p>Portfolio Projects</p>
 
@@ -95,7 +94,7 @@ I analyze operational and business data to understand performance, identify inef
 
 <div class="stat-box">
 
-<h2>3+</h2>
+<h2>5+</h2>
 
 <p>Years Business Experience</p>
 
@@ -264,7 +263,7 @@ Creating compelling charts and executive dashboards.
 
 <div class="project-card">
 
-## 🚚 U.S. Freight Transportation Analytics
+##  U.S. Freight Transportation Analytics
 
 Analyzed 599,529 freight-flow records across the United States using the Bureau of Transportation Statistics' Freight Analysis Framework Version 6.0 (FAF6.0) 2022.
 
@@ -281,6 +280,10 @@ U.S Bureau of Transportation Statistics
 
 <a class="button" href="projects/us-freight-transportation-analytics/U.S_freight_analytics.html">
     View Case Study
+</a>
+
+<a class="button" href="projects/us-freight-transportation-analytics/EDA_Report_US_Freight.html">
+    View EDA Report
 </a>
 
 <a class="button" href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no"
@@ -304,35 +307,101 @@ This project demonstrates an end-to-end analytics workflow, from data cleaning a
 
 <div class="project-card">
 
-## 🏦 German Credit Risk Prediction
+## Natural Language Next-word Prediction Model
 
-Predicting loan approval risk using machine learning and an interactive Shiny application.
+A natural language next-word prediction model accompanied by an app which predicts the most likely next word when a user enters a word or a sentence; the same category of "invisible AI" behind phone keyboards, search auto-complete, and drafting assistants entirely from raw text, with no external APIs or pre-trained language models.
 
 **Tools**
 
-R • Shiny • Machine Learning • ggplot2
+R | Git | GitHub | Shiny
 
-<a class="button" href="#">Live Demo</a>
+**Data Source**
+Swiftkey/Coursera 
+<a class="button" href="https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip"
+    target="_blank">
+    Get Data 
+</a>
 
-<a class="button" href="https://github.com/okwumuo-martin">GitHub</a>
+<a class="button" href="https://snndvl-martin-okwumuo.shinyapps.io/Text-Prediction-Model"
+    target="_blank">
+    View App
+</a>
+
+<a class="button"
+   href="https://snndvl-martin-okwumuo.shinyapps.io/slide_deck"
+   target="_blank">
+   View Slide
+</a>
+
+<a class="button" href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/Next_Word_Model_Case_Study.html">
+    View Case Study
+</a>
+
+<a class="button"
+   href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/EDA_Report.html">
+   View EDA Report
+</a>
+
+<a class="button"
+   href="https://github.com/okwumuo-martin/Text-Prediction-Model"
+   target="_blank">
+   View GitHub Repository
+</a>
+
+<p>
+
+This project covers the full life-cycle of a real data science project from exploratory analysis to a statistically grounded model architecture, performance debugging, held-out evaluation and a shipped, non-technical user friendly Shiny application.
+
+</p>
 
 </div>
 
 <div class="project-card">
 
-## 📈 Sales Performance Dashboard
+## German Credit Risk Prediction
 
-Business Intelligence dashboard tracking sales, KPIs, targets, and territory performance.
+Predicting loan approval risk using machine learning and an interactive Shiny application. This project demonstrates how machine learning can be used to support the assessment of loan applicants. A Logistic Regression model is developed using the German Credit dataset and incorporated into an interactive Shiny application
 
 **Tools**
 
-Power BI • Excel • SQL
+R • Shiny • Machine Learning • ggplot2
 
-<a class="button" href="#">View Dashboard</a>
+**Data Source**
+GermanCredit Dataset in R
 
-<a class="button" href="https://github.com/okwumuo-martin">GitHub</a>
+
+<a class="button" href="https://snndvl-martin-okwumuo.shinyapps.io/Loan_eligibility_predictor"
+    target="_blank">
+    View App
+</a>
+
+<a class="button"
+   href="https://snndvl-martin-okwumuo.shinyapps.io/Loan_predictor_presentation"
+   target="_blank">
+   View Slide
+</a>
+
+<a class="button" href="projects/German-Credit-Predictor/German_Credit_Case_Study.html">
+    View Case Study
+</a>
+
+<a class="button"
+   href="projects/German-Credit-Predictor/EDA_Report_German_Credit.html">
+   View EDA Report
+</a>
+
+<a class="button"
+   href="https://github.com/okwumuo-martin/German-Credit-Predictor"
+   target="_blank">
+   View GitHub Repository
+</a>
+
+<p>
+A simple and interactive prediction system that demonstrates how statistical modelling can assist in credit assessment. From Raw data to data product.
+</p>
 
 </div>
+
 
 </div>
 

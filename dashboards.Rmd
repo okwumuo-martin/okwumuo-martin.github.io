@@ -26,7 +26,7 @@ Martin Okwumuo
 
 <li><a href="dashboards.html">Dashboards</a></li>
 
-<li><a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf">Resume</a></li>
+<li><a href="resume/Martin_Okwumuo_Updated_CV.pdf">Resume</a></li>
 
 <li><a href="contacts.html">Contact</a></li>
 
@@ -80,7 +80,7 @@ R | Tableau | Git | GitHub
 
 <a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard"
    target="_blank"
-   class="project-button secondary">
+   class="project-button">
    View GitHub Repository
 </a>
 
@@ -92,45 +92,163 @@ R | Tableau | Git | GitHub
 
 </div>
 
-
-
-
 <div class="section-divider"></div>
 
-<div class="dashboard-card">
+## Natural Language Next-word Prediction App
 
-![](assets/images/dashboard2.png){width=100%}
+This is a next-word prediction app; just like the "invisible AI" behind phone keyboards, search auto-complete, and drafting assistants. It was developed entirely from raw text, with no external APIs or pre-trained language models. It covers the full life-cycle of a real data science project; 
 
-## Logistics Dashboard
-
-**Business Problem**
-
-Track shipment volume, delivery performance, and customer satisfaction.
+- Exploratory Data Analysis 
+- Model Architecture several rounds of serious 
+- Performance Debugging
+- Evaluation 
+- Data Product
 
 **Tools**
 
-Excel • Tableau
+R | Shiny | Git | GitHub
 
-<a class="button" href="#">View Dashboard</a>
+**Skills Demonstrated**
+
+- Exploratory Data Analysis
+- Applied Natural Language Processing
+- Performance Engineering 
+- Evaluation Methodology 
+- Product Thinking
+- R Engineering
+- Machine Learning
+
+<div class="tableau-container">
+
+<iframe
+  src="https://snndvl-martin-okwumuo.shinyapps.io/Text-Prediction-Model"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
 </div>
 
-<div class="section-divider"></div>
+<div class="project-buttons">
 
-<div class="dashboard-card">
 
-![](assets/images/dashboard3.png){width=100%}
+<a href="https://snndvl-martin-okwumuo.shinyapps.io/slide_deck"
+   class="project-button">
+    View Slide
+</a>
 
-## Customer Analytics Dashboard
+<a href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/Next_Word_Model_Case_Study.html"
+   class="project-button">
+    View Case Study
+</a>
 
-**Business Problem**
+<a href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/EDA_Report.html" class="project-button">
+View EDA Report
+</a>
 
-Understand customer behavior, segmentation, and retention.
+<a href="https://github.com/okwumuo-martin/Text-Prediction-Model"
+   target="_blank"
+   class="project-button">
+   View GitHub Repository
+</a>
+
+
+</div>
+
+## German Credit Loan Eligibility Prediction App
+
+ A machine-learning project using the German Credit dataset to analyze credit risk and develop an interactive loan eligibility prediction application using R and Shiny.
 
 **Tools**
 
-Tableau • SQL
+R | Shiny | Git | GitHub
 
-<a class="button" href="#">View Dashboard</a>
+**Skills Demonstrated**
+
+- Exploratory Data Analysis
+- Logistics Regression
+- Product Thinking
+- R Engineering
+- Machine Learning
+
+<div class="tableau-container">
+
+<iframe
+  src="https://snndvl-martin-okwumuo.shinyapps.io/Loan_eligibility_predictor"
+  width="100%"
+  height="800"
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
 </div>
+
+<div class="project-buttons">
+
+
+<a href="https://snndvl-martin-okwumuo.shinyapps.io/Loan_predictor_presentation"
+   class="project-button">
+    View Slide
+</a>
+
+<a href="projects/German-Credit-Predictor/German_Credit_Case_Study.html"
+   class="project-button">
+    View Case Study
+</a>
+
+<a href="projects/German-Credit-Predictor/EDA_Report_German_Credit.html" class="project-button">
+View EDA Report
+</a>
+
+<a href="https://github.com/okwumuo-martin/German-Credit-Predictor"
+   target="_blank"
+   class="project-button">
+   View GitHub Repository
+</a>
+
+
+</div>
+
+
+```{=html}
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+
+window.onscroll=function(){
+
+scrollFunction();
+
+};
+
+function scrollFunction(){
+
+if(document.body.scrollTop>400||
+
+document.documentElement.scrollTop>400){
+
+document.getElementById("topBtn").style.display="block";
+
+}else{
+
+document.getElementById("topBtn").style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+</script>
+```

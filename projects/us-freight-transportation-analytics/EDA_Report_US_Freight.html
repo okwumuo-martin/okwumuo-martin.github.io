@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-01-01" />
 
-<title>U.S. Freight Transportation Analytics</title>
+<title>EDA Report On U.S. Freight Transportation Analytics</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1498,1060 +1498,981 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">U.S. Freight Transportation Analytics</h1>
+<h1 class="title toc-ignore">EDA Report On U.S. Freight Transportation
+Analytics</h1>
 <h4 class="author">Martin Okwumuo I.</h4>
 <h4 class="date">2026</h4>
 
 </div>
 
 
-<div id="project-overview" class="section level1">
-<h1>Project Overview</h1>
-<div id="u.s.-freight-transportation-analytics" class="section level2">
-<h2>U.S. Freight Transportation Analytics</h2>
-<div id="an-analysis-of-freight-volume-economic-value-and-transportation-patterns-across-the-united-states-the-u.s.-department-of-transportation-bureau-of-transportation-statistics-faf6-data." class="section level3 project-intro">
-<h3>An analysis of freight volume, economic value and transportation
-patterns across the United States the U.S. Department of Transportation,
-Bureau of Transportation Statistics FAF6 data.</h3>
+<div id="exploratory-data-analysis-report" class="section level1">
+<h1>Exploratory Data Analysis Report</h1>
+<div id="us-freight-transportation-analytics" class="section level2">
+<h2>US Freight Transportation Analytics</h2>
+<div id="freight-flow-commodity-and-state-level-analysis-using-the-faf6-dataset" class="section level3">
+<h3>Freight Flow, Commodity, and State-Level Analysis Using the FAF6
+Dataset</h3>
+<hr />
 </div>
-<div class="project-intro">
-<p><strong>Tools:</strong> R • Tableau Public • dplyr</p>
-<p><strong>Dataset:</strong> BTS Freight Analysis Framework Version 6
-(FAF6)</p>
-<p><strong>Analysis Year:</strong> 2022</p>
-</div>
-<p>This project analyzes freight data across the United States using
-data from the Freight Analysis Framework Version 6 (FAF6) developed by
-the U.S. Department of Transportation’s Bureau of Transportation
-Statistics.</p>
-<p>The analysis examines freight activity across 51 states, 42 commodity
-groups and multiple transportation modes, with a focus on understanding
-the relationship between physical freight volume and economic value.</p>
-<p>The project combines R for data preparation and analysis with Tableau
-Public for interactive business intelligence and visualization.</p>
 </div>
 </div>
 <div id="executive-summary" class="section level1">
-<h1>Executive Summary</h1>
-<p>The analysis covers 599,529 freight records, representing
-approximately 19.63 billion short tons of freight and $24.77 trillion in
-freight value, measured in 2022 constant dollars.</p>
-<p>The analysis reveals that physical freight volume and economic value
-do not necessarily follow the same patterns. Hight freight volume does
-not necessarily translate to high economic value.</p>
-<p>Key findings:</p>
+<h1>1. Executive Summary</h1>
+<p>This exploratory data analysis investigates freight transportation
+patterns across the United States using data from the Freight Analysis
+Framework (FAF6).</p>
+<p>The objective of the analysis is to understand how freight moves
+across the US transportation network, identify the states and
+commodities associated with the greatest freight activity, examine
+freight value and volume patterns, and generate insights that can
+support logistics, transportation, and supply-chain decision-making.</p>
+<p>The dataset contains <strong>599,529 freight-flow records across 11
+variables</strong>, covering transportation activity involving
+<strong>51 states and 42 commodity categories</strong>.</p>
+<p>The analysis examines freight from two primary perspectives:</p>
 <ul>
-<li>Truck transportation accounts for 62.1% of total freight volume and
-70.8% of total freight value.</li>
-<li>Texas is the leading state by both freight volume and freight
-value.</li>
-<li>Natural gas and other fossil products represent the largest
-commodity group by physical freight volume.</li>
-<li>Electronics generate the highest total freight value among the
-commodity groups analyzed.</li>
-<li>High-value commodities such as electronics and machinery have
-substantially greater value relative to their physical weight than
-heavier commodities such as gravel and fossil products.</li>
-<li>State-level analysis also shows meaningful differences between
-freight volume and freight value density.</li>
+<li><strong>Freight volume</strong>, measured in tons</li>
+<li><strong>Freight economic value</strong></li>
 </ul>
-</div>
-<div id="project-data-at-a-glance" class="section level1">
-<h1>Project Data at a Glance</h1>
-<div class="kpi-grid">
-<div class="kpi-card">
-<div class="kpi-number">
-599,529
-</div>
-<div class="kpi-label">
-<strong>Freight-flow records</strong>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-number">
-19.63B
-</div>
-<div class="kpi-label">
-Short tons of freight
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-number">
-$24.77T
-</div>
-<div class="kpi-label">
-<strong>Freight value</strong>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-number">
-51
-</div>
-<div class="kpi-label">
-<strong>States covered</strong>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-number">
-42
-</div>
-<div class="kpi-label">
-<strong>Commodity groups</strong>
-</div>
-</div>
-<div class="kpi-card">
-<div class="kpi-number">
-62.1%
-</div>
-<div class="kpi-label">
-<strong>Truck volume share</strong>
-</div>
-</div>
-</div>
+<p>This distinction is important because the commodities generating the
+largest physical volumes are not necessarily the commodities generating
+the greatest economic value.</p>
+<p>The analysis found that freight activity is highly concentrated among
+major US economic and transportation hubs. <strong>Texas, California,
+Illinois, New York, and Ohio</strong> were among the leading states by
+freight value.</p>
+<p>At the commodity level, <strong>Electronics</strong> stood out as a
+particularly high-value commodity, generating approximately <strong>2.48
+million units of freight value</strong> and approximately
+<strong>151,050 units of freight volume</strong> within the analyzed
+dataset.</p>
+<p>The results demonstrate how transportation data can be transformed
+into actionable insights for logistics planning, supply-chain
+management, infrastructure investment, and freight-market analysis.</p>
+<hr />
 </div>
 <div id="business-problem" class="section level1">
-<h1>Business Problem</h1>
-<p>Freight transportation involves large volumes of goods moving between
-locations through different transportation modes and commodity supply
-chains.</p>
-<p>However, simply measuring the amount of freight being moved does not
-provide a complete picture of its economic importance. A relatively
-small physical volume of high-value goods may represent substantially
-greater economic value than a much larger volume of low-value
-commodities.</p>
-<p>This project therefore examines both freight volume and freight value
-to understand:</p>
+<h1>2. Business Problem</h1>
+<p>The US freight transportation system moves enormous quantities of
+goods between production facilities, distribution centers, businesses,
+and consumers.</p>
+<p>For logistics and supply-chain organizations, understanding freight
+movement is important for answering questions such as:</p>
 <ul>
-<li>where freight activity is concentrated;</li>
-<li>which transportation modes carry the greatest freight volumes;</li>
-<li>which states account for the greatest freight activity and
-value;</li>
-<li>which commodities generate the greatest economic value; and</li>
-<li>which commodities have particularly high economic value relative to
-their physical weight.</li>
+<li>Which states handle the greatest freight activity?</li>
+<li>Which commodities contribute most to freight volume?</li>
+<li>Which commodities contribute most to freight value?</li>
+<li>Where are the major freight concentration points?</li>
+<li>Which regions may require greater transportation capacity?</li>
+<li>How can freight data support logistics planning and operational
+decisions?</li>
 </ul>
+<p>Without structured analysis, large transportation datasets can be
+difficult to interpret and convert into useful business
+intelligence.</p>
+<p>This project therefore applies exploratory data analysis to
+freight-flow data to identify major transportation patterns and
+potential areas of operational importance.</p>
+<hr />
 </div>
-<div id="business-questions" class="section level1">
-<h1>Business Questions</h1>
-<p>The analysis was designed to answer six key questions:</p>
+<div id="project-objectives" class="section level1">
+<h1>3. Project Objectives</h1>
+<p>The main objectives of the analysis were to:</p>
 <ol style="list-style-type: decimal">
-<li>How much freight moves across the United States?</li>
-<li>Which transportation mode carries the most freight?</li>
-<li>Which commodities generate the highest economic value?</li>
-<li>Which states move the largest freight volumes?</li>
-<li>Which commodities are high-value but relatively low-weight?</li>
-<li>How can users interactively explore freight patterns across states,
-commodities, transportation modes and trade types?</li>
+<li>Examine the structure and characteristics of the FAF6 freight
+dataset.</li>
+<li>Quantify total freight volume and freight value.</li>
+<li>Identify the number of states represented in the dataset.</li>
+<li>Identify the number of commodity categories represented.</li>
+<li>Determine the commodities generating the greatest freight
+volume.</li>
+<li>Determine the commodities generating the greatest freight
+value.</li>
+<li>Identify states associated with the greatest freight value.</li>
+<li>Compare physical freight volume with economic freight value.</li>
+<li>Calculate value-per-ton metrics for commodities.</li>
+<li>Generate insights relevant to transportation and supply-chain
+management.</li>
+<li>Develop a foundation for an interactive logistics analytics
+dashboard.</li>
 </ol>
+<hr />
 </div>
 <div id="data-source" class="section level1">
-<h1>Data Source</h1>
-<div id="freight-analysis-framework-version-6-faf6" class="section level2">
-<h2>Freight Analysis Framework Version 6 (FAF6)</h2>
-<p>The primary dataset used in this project is the Freight Analysis
-Framework Version 6 (FAF6) Commodity Flow Database from the U.S.
-Department of Transportation’s Bureau of Transportation Statistics.</p>
-<p>The dataset provides freight-flow information across U.S. domestic
-locations, imports and exports including information about:</p>
+<h1>4. Data Source</h1>
+<p>The analysis uses the <strong>Freight Analysis Framework
+(FAF6)</strong> dataset developed by the US Bureau of Transportation
+Statistics and its transportation-data partners.</p>
+<p>FAF provides detailed information about freight flows within, into,
+and out of the United States.</p>
+<p>The dataset can be used to analyze:</p>
 <ul>
-<li>origin and destination;</li>
-<li>transportation mode;</li>
-<li>commodity;</li>
-<li>trade type;</li>
-<li>freight weight; and</li>
-<li>freight value.</li>
+<li>Freight origins</li>
+<li>Freight destinations</li>
+<li>Commodity flows</li>
+<li>Transportation activity</li>
+<li>Freight volume</li>
+<li>Freight value</li>
+<li>Transportation networks</li>
 </ul>
-<p>According to the FAF6 data dictionary:</p>
+<p>The dataset was selected because it provides a strong foundation for
+analyzing US freight transportation at a national and regional
+level.</p>
+<hr />
+</div>
+<div id="dataset-overview" class="section level1">
+<h1>5. Dataset Overview</h1>
+<p>The imported dataset contained:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th align="right">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observations</td>
+<td align="right"><strong>599,529</strong></td>
+</tr>
+<tr class="even">
+<td>Variables</td>
+<td align="right"><strong>11</strong></td>
+</tr>
+<tr class="odd">
+<td>States represented</td>
+<td align="right"><strong>51</strong></td>
+</tr>
+<tr class="even">
+<td>Commodity categories</td>
+<td align="right"><strong>42</strong></td>
+</tr>
+<tr class="odd">
+<td>Total freight volume</td>
+<td align="right"><strong>19,632,954</strong></td>
+</tr>
+<tr class="even">
+<td>Total freight value</td>
+<td align="right"><strong>24,767,866</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The dataset therefore provides a substantial number of freight-flow
+observations for exploratory analysis.</p>
+<p>The 599,529 records allow transportation activity to be examined at a
+relatively detailed level rather than relying only on national-level
+aggregates.</p>
+<hr />
+</div>
+<div id="data-structure" class="section level1">
+<h1>6. Data Structure</h1>
+<p>The initial inspection was performed using R:</p>
+<pre class="r"><code>dim(freight)
+
+str(freight)
+
+summary(freight)
+
+names(freight)</code></pre>
+<p>The analysis confirmed that the dataset contains <strong>599,529
+observations and 11 variables</strong>.</p>
+<p>The relatively large number of observations provides sufficient data
+for aggregation and comparative analysis across states, commodities, and
+freight measures.</p>
+<hr />
+</div>
+<div id="data-quality-assessment" class="section level1">
+<h1>7. Data Quality Assessment</h1>
+<p>Before conducting the main analysis, the dataset should be assessed
+for:</p>
 <ul>
-<li>Freight weight is reported in thousand short tons.</li>
-<li>Freight value is reported in million dollars.</li>
-<li>Freight value is expressed in 2022 constant dollars.</li>
+<li>Missing values</li>
+<li>Duplicate records</li>
+<li>Invalid values</li>
+<li>Unexpected categorical values</li>
+<li>Extreme observations</li>
 </ul>
-<p><a class="button" href="https://www.bts.gov/faf" target="_blank"> View Data Source </a></p>
+<p>Missing values can be checked using:</p>
+<pre class="r"><code>colSums(is.na(freight))</code></pre>
+<p>Duplicate records can be investigated using:</p>
+<pre class="r"><code>sum(duplicated(freight))</code></pre>
+<p>Summary statistics were also used to identify potentially unusual
+values:</p>
+<pre class="r"><code>summary(freight)</code></pre>
+<p>These steps are important because transportation data may contain
+very large values and highly concentrated observations.</p>
+<hr />
 </div>
+<div id="overall-freight-activity" class="section level1">
+<h1>8. Overall Freight Activity</h1>
+<p>The first stage of the analysis was to calculate the overall freight
+volume and value.</p>
+<p>The analysis produced:</p>
+<div id="total-freight-volume" class="section level3">
+<h3>Total Freight Volume</h3>
+<p><strong>19,632,954</strong></p>
 </div>
-<div id="data-preparation" class="section level1">
-<h1>Data Preparation</h1>
-<p>The raw FAF6 data contains coded values for several important
-analytical dimensions. These codes were transformed into meaningful
-labels using the accompanying FAF6 reference tables.</p>
-<p>For example:</p>
+<div id="total-freight-value" class="section level3">
+<h3>Total Freight Value</h3>
+<p><strong>24,767,866</strong></p>
+<p>These figures demonstrate the scale of transportation activity
+represented by the dataset.</p>
+<p>The analysis also identified:</p>
 <ul>
-<li>State codes were mapped to state_names.</li>
-<li>Transportation-mode codes were mapped to transportation_mode
-description.</li>
-<li>Commodity codes were mapped to commodity_names.</li>
+<li><strong>51 states</strong></li>
+<li><strong>42 commodity categories</strong></li>
 </ul>
-<p>The resulting analytical dataset, ‘freight_business’, was then used
-for exploratory analysis and visualization in Tableau Public.</p>
-</div>
-<div id="project-workflow" class="section level1">
-<h1>Project Workflow</h1>
-<p>The project followed a structured analytics workflow:</p>
-<div class="process-grid">
-<div class="process-card">
-<ol style="list-style-type: decimal">
-<li>Data Collection<br />
-Obtained the FAF6 freight-flow dataset and supporting reference
-tables.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="2" style="list-style-type: decimal">
-<li>Data Cleaning<br />
-Inspected the dataset structure, missing values and duplicate records.
-Clean and transform the FAF6 dataset using R. Join reference tables to
-convert coded fields into readable state, commodity, transportation
-mode, and trade type labels.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="3" style="list-style-type: decimal">
-<li>Define the Problem Identify where freight activity is concentrated,
-which transportation modes dominate, and which commodities generate the
-greatest economic value.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="4" style="list-style-type: decimal">
-<li>Data Transformation<br />
-Mapped coded states, commodities and transportation modes to meaningful
-labels.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="5" style="list-style-type: decimal">
-<li>Exploratory Analysis Calculate freight volume, economic value,
-market shares, value density, and rankings across states, commodities,
-transportation modes, and trade types.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="6" style="list-style-type: decimal">
-<li>Visualize Insights Build interactive Tableau visualizations and an
-executive dashboard that allows users to explore freight patterns using
-filters and chart interactions.</li>
-</ol>
-</div>
-<div class="process-card">
-<ol start="7" style="list-style-type: decimal">
-<li>Business Interpretation<br />
-Translated analytical results into findings and potential business
-implications.</li>
-</ol>
+<p>This provides a broad national view of freight activity.</p>
+<hr />
 </div>
 </div>
-<div id="data-quality-checks" class="section level2">
-<h2>Data Quality Checks</h2>
-<p>Several checks were performed during preparation:</p>
+<div id="freight-volume-analysis" class="section level1">
+<h1>9. Freight Volume Analysis</h1>
+<p>Freight volume measures the physical quantity of goods being
+transported.</p>
+<p>The total freight volume was:</p>
+<blockquote>
+<p><strong>19,632,954</strong></p>
+</blockquote>
+<p>Freight volume is particularly relevant to transportation operators
+because physical volume influences:</p>
 <ul>
-<li>Dataset dimensions were inspected.</li>
-<li>Missing values were examined.</li>
-<li>Duplicate records were checked.</li>
-<li>Reference tables were validated.</li>
-<li>Analytical variables were reviewed before exporting the cleaned
-dataset.</li>
+<li>Truck capacity</li>
+<li>Rail capacity</li>
+<li>Warehouse requirements</li>
+<li>Port throughput</li>
+<li>Road infrastructure</li>
+<li>Fuel consumption</li>
+<li>Distribution requirements</li>
 </ul>
-<p>The final source dataset contained 599,529 records and 11 original
-variables before the analytical transformations and reference-table
-joins used to create the business-ready dataset.</p>
+<p>A high-volume commodity may therefore place significant demands on
+transportation infrastructure even if its economic value is relatively
+low.</p>
+<hr />
+</div>
+<div id="freight-value-analysis" class="section level1">
+<h1>10. Freight Value Analysis</h1>
+<p>Freight value provides an economic perspective on transportation
+activity.</p>
+<p>The total freight value in the analyzed dataset was:</p>
+<blockquote>
+<p><strong>24,767,866</strong></p>
+</blockquote>
+<p>Value is important because two commodities can generate similar
+transportation volumes while having very different economic
+significance.</p>
+<p>High-value freight may require:</p>
+<ul>
+<li>Enhanced security</li>
+<li>Specialized handling</li>
+<li>Faster transportation</li>
+<li>Greater inventory protection</li>
+<li>Higher-value logistics services</li>
+</ul>
+<p>Therefore, freight volume and freight value should be analyzed
+together rather than independently.</p>
+<hr />
+</div>
+<div id="commodity-level-analysis" class="section level1">
+<h1>11. Commodity-Level Analysis</h1>
+<p>The dataset contains <strong>42 commodity categories</strong>.</p>
+<p>Commodity-level aggregation was performed to identify which
+categories contribute most to freight activity.</p>
+<p>A typical aggregation approach is:</p>
+<pre class="r"><code>commodity_summary &lt;- freight %&gt;%
+  group_by(commodity) %&gt;%
+  summarise(
+    freight_tons = sum(freight_tons, na.rm = TRUE),
+    freight_value = sum(freight_value, na.rm = TRUE)
+  )</code></pre>
+<p>The results can then be ranked by freight volume:</p>
+<pre class="r"><code>commodity_summary %&gt;%
+  arrange(desc(freight_tons))</code></pre>
+<p>Or by freight value:</p>
+<pre class="r"><code>commodity_summary %&gt;%
+  arrange(desc(freight_value))</code></pre>
+<hr />
+</div>
+<div id="high-value-commodity-analysis" class="section level1">
+<h1>12. High-Value Commodity Analysis</h1>
+<p>One of the notable findings was the performance of the
+<strong>Electronics</strong> commodity category.</p>
+<p>The analysis produced approximately:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Commodity</th>
+<th align="right">Freight Volume</th>
+<th align="right">Freight Value</th>
+<th align="right">Value per Ton</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Electronics</td>
+<td align="right">151,050</td>
+<td align="right">2,478,656</td>
+<td align="right">16.4</td>
+</tr>
+</tbody>
+</table>
+<p>Electronics therefore represents a particularly interesting category
+because its economic value is high relative to its physical freight
+volume.</p>
+<div id="business-interpretation" class="section level3">
+<h3>Business Interpretation</h3>
+<p>This demonstrates an important principle in logistics analytics:</p>
+<blockquote>
+<p><strong>Freight volume does not necessarily equal economic
+importance.</strong></p>
+</blockquote>
+<p>Electronics may occupy relatively less physical capacity than bulk
+commodities while representing considerably greater economic value.</p>
+<p>From a logistics perspective, high-value commodities may justify:</p>
+<ul>
+<li>Enhanced security</li>
+<li>Improved shipment tracking</li>
+<li>Reduced transit times</li>
+<li>Specialized transportation services</li>
+<li>Higher insurance requirements</li>
+<li>Greater inventory visibility</li>
+</ul>
+<hr />
 </div>
 </div>
-<div id="exploratory-analysis" class="section level1">
-<h1>Exploratory Analysis</h1>
-<p>The exploratory analysis examined freight activity across four major
-dimensions:</p>
-<ol style="list-style-type: decimal">
-<li>Transportation mode</li>
-<li>Geographic distribution</li>
-<li>Commodity composition</li>
-<li>Economic value relative to freight weight</li>
-</ol>
-<p>This analysis was performed in R before the cleaned dataset was
-exported to Tableau Public for interactive visualization.</p>
-<div id="freight-by-transportation-mode" class="section level2">
-<h2>Freight by Transportation Mode</h2>
-<p>Transportation mode analysis shows a strong dependence on trucking
-within the freight network.</p>
-<p>Truck transportation accounts for approximately 62.1% of total
-freight volume and 70.8% of total freight value.</p>
-<p>Other important modes include pipeline, rail, and multiple modes and
-mail.</p>
-<p>An important difference appears when comparing freight volume with
-freight value. Air transportation represents only approximately 0.04% of
-freight volume, but accounts for approximately 2.81% of freight
+<div id="value-per-ton-analysis" class="section level1">
+<h1>13. Value-per-Ton Analysis</h1>
+<p>To compare commodity economic importance relative to physical volume,
+the analysis calculated:</p>
+<pre class="r"><code>value_per_ton = freight_value / freight_tons</code></pre>
+<p>This metric provides an estimate of the economic value associated
+with each unit of freight volume.</p>
+<p>For Electronics:</p>
+<blockquote>
+<p><strong>Value per ton ≈ 16.4</strong></p>
+</blockquote>
+<p>This metric helps distinguish between:</p>
+<div id="high-volume-lower-value-freight" class="section level3">
+<h3>High-volume / lower-value freight</h3>
+<p>Examples may include bulk materials and agricultural products.</p>
+</div>
+<div id="lower-volume-high-value-freight" class="section level3">
+<h3>Lower-volume / high-value freight</h3>
+<p>Examples may include electronics and other specialized products.</p>
+<p>This distinction is particularly useful for transportation planning
+because different freight categories may require different logistics
+strategies.</p>
+<hr />
+</div>
+</div>
+<div id="state-level-freight-analysis" class="section level1">
+<h1>14. State-Level Freight Analysis</h1>
+<p>The dataset includes freight activity associated with <strong>51
+states/regions</strong>.</p>
+<p>State-level aggregation was used to identify the locations with the
+greatest freight value.</p>
+<p>The analysis produced the following top 10 states:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Rank</th>
+<th>State</th>
+<th align="right">Relative Freight Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Texas</td>
+<td align="right">Highest</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>California</td>
+<td align="right">Very High</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Illinois</td>
+<td align="right">Very High</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td>New York</td>
+<td align="right">High</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td>Ohio</td>
+<td align="right">High</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td>Florida</td>
+<td align="right">High</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td>Pennsylvania</td>
+<td align="right">High</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td>New Jersey</td>
+<td align="right">High</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td>Georgia</td>
+<td align="right">High</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td>Michigan</td>
+<td align="right">High</td>
+</tr>
+</tbody>
+</table>
+<p>The exact ranking was generated from the freight-value
+aggregation.</p>
+<hr />
+</div>
+<div id="geographic-freight-concentration" class="section level1">
+<h1>15. Geographic Freight Concentration</h1>
+<p>The concentration of freight activity among states such as
+<strong>Texas, California, Illinois, New York, and Ohio</strong> is
+consistent with their importance as major population centers, production
+locations, distribution hubs, ports, and transportation corridors.</p>
+<div id="texas" class="section level3">
+<h3>Texas</h3>
+<p>Texas represents a major logistics hub because of its large
+geographic area, industrial activity, population, and extensive road and
+rail networks.</p>
+</div>
+<div id="california" class="section level3">
+<h3>California</h3>
+<p>California is a major gateway for international trade and contains
+important population and economic centers.</p>
+</div>
+<div id="illinois" class="section level3">
+<h3>Illinois</h3>
+<p>Illinois is strategically important because of its central geographic
+position and extensive transportation infrastructure.</p>
+</div>
+<div id="new-york" class="section level3">
+<h3>New York</h3>
+<p>New York represents a major economic and population center with
+substantial freight demand.</p>
+</div>
+<div id="ohio" class="section level3">
+<h3>Ohio</h3>
+<p>Ohio’s central location and industrial base make it an important
+transportation and distribution region.</p>
+<hr />
+</div>
+</div>
+<div id="freight-value-by-state" class="section level1">
+<h1>16. Freight Value by State</h1>
+<p>The state-level analysis can be reproduced using:</p>
+<pre class="r"><code>state_summary &lt;- freight %&gt;%
+  group_by(state) %&gt;%
+  summarise(
+    freight_tons = sum(freight_tons, na.rm = TRUE),
+    freight_value = sum(freight_value, na.rm = TRUE)
+  ) %&gt;%
+  arrange(desc(freight_value))</code></pre>
+<p>The top 10 states can then be visualized:</p>
+<pre class="r"><code>ggplot(
+  head(state_summary, 10),
+  aes(
+    x = reorder(state, freight_value),
+    y = freight_value
+  )
+) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = &quot;Top 10 States by Freight Value&quot;,
+    x = &quot;State&quot;,
+    y = &quot;Freight Value&quot;
+  )</code></pre>
+<hr />
+</div>
+<div id="freight-volume-vs.-freight-value" class="section level1">
+<h1>17. Freight Volume vs. Freight Value</h1>
+<p>A major objective of the analysis was to compare physical freight
+volume with economic value.</p>
+<p>These two measures answer different business questions.</p>
+<div id="freight-volume" class="section level3">
+<h3>Freight Volume</h3>
+<p>Answers:</p>
+<blockquote>
+<p><strong>How much physical freight is being transported?</strong></p>
+</blockquote>
+</div>
+<div id="freight-value" class="section level3">
+<h3>Freight Value</h3>
+<p>Answers:</p>
+<blockquote>
+<p><strong>What is the economic value associated with the
+freight?</strong></p>
+</blockquote>
+<p>A state or commodity may rank highly in one metric but not the
+other.</p>
+<p>This difference is important because logistics resources should not
+necessarily be allocated solely according to freight tonnage.</p>
+<p>High-value freight may require a different operational strategy from
+high-volume freight.</p>
+<hr />
+</div>
+</div>
+<div id="key-eda-findings" class="section level1">
+<h1>18. Key EDA Findings</h1>
+<p>The exploratory analysis produced several important findings.</p>
+<div id="finding-1-the-dataset-is-large-and-geographically-broad" class="section level3">
+<h3>Finding 1 — The dataset is large and geographically broad</h3>
+<p>The dataset contains <strong>599,529 observations</strong>, providing
+extensive information about freight movements.</p>
+<p>The analysis covers <strong>51 states/regions and 42 commodity
+categories</strong>.</p>
+<hr />
+</div>
+<div id="finding-2-freight-activity-is-concentrated-geographically" class="section level3">
+<h3>Finding 2 — Freight activity is concentrated geographically</h3>
+<p>A relatively small number of states account for substantial freight
 value.</p>
-<p>This indicates that physical freight volume and economic value can
-differ substantially across transportation modes.</p>
-<div id="transportation-mode-summary" class="section level3">
-<h3>Transportation Mode Summary</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Transportation Mode</th>
-<th align="right">Volume Share</th>
-<th align="right">Value Share</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Truck</td>
-<td align="right">62.1%</td>
-<td align="right">70.8%</td>
-</tr>
-<tr class="even">
-<td align="left">Pipeline</td>
-<td align="right">19.0%</td>
-<td align="right">7.09%</td>
-</tr>
-<tr class="odd">
-<td align="left">Rail</td>
-<td align="right">9.31%</td>
-<td align="right">4.09%</td>
-</tr>
-<tr class="even">
-<td align="left">Multiple modes &amp; mail</td>
-<td align="right">5.64%</td>
-<td align="right">12.9%</td>
-</tr>
-<tr class="odd">
-<td align="left">Water</td>
-<td align="right">2.75%</td>
-<td align="right">1.19%</td>
-</tr>
-<tr class="even">
-<td align="left">Other and unknown</td>
-<td align="right">0.72%</td>
-<td align="right">0.90%</td>
-</tr>
-<tr class="odd">
-<td align="left">No domestic mode</td>
-<td align="right">0.36%</td>
-<td align="right">0.19%</td>
-</tr>
-<tr class="even">
-<td align="left">Air</td>
-<td align="right">0.04%</td>
-<td align="right">2.81%</td>
-</tr>
-</tbody>
-</table>
-<p>The comparison highlights that transportation modes should not be
-evaluated solely by physical freight volume. Modes carrying relatively
-small physical volumes can still account for a disproportionately large
-share of freight value.</p>
+<p><strong>Texas, California, Illinois, New York, and Ohio</strong> were
+among the leading states.</p>
+<p>This suggests that major economic and transportation hubs play a
+significant role in US freight activity.</p>
+<hr />
 </div>
-</div>
-</div>
-<div id="geographic-analysis" class="section level1">
-<h1>Geographic Analysis</h1>
-<p>The state-level analysis examined both the physical volume and
-economic value of freight associated with each state.</p>
-<p>Texas emerged as the leading state on both measures, accounting for
-approximately 2.77 billion short tons of freight and $3.25 trillion in
-freight value.</p>
-<p>California ranked second by freight volume with approximately 1.37
-billion short tons, while also generating approximately $2.92 trillion
-in freight value.</p>
-<p>The rankings change when economic value rather than physical volume
-is considered. For example, North Dakota appears among the top states by
-freight volume but does not appear among the top ten states by freight
-value. Conversely, New Jersey ranks among the top ten states by freight
-value despite not appearing among the top ten by freight volume.</p>
-<p>This demonstrates that geographic freight importance can look
-different depending on whether it is measured by physical volume or
-economic value.</p>
-<div id="top-states-by-freight-volume" class="section level3">
-<h3>Top States by Freight Volume</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Rank</th>
-<th align="left">State</th>
-<th align="right">Freight Volume</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Texas</td>
-<td align="right">2.77B short tons</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">California</td>
-<td align="right">1.37B</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Louisiana</td>
-<td align="right">964.1M</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Illinois</td>
-<td align="right">796.8M</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Pennsylvania</td>
-<td align="right">774.1M</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Ohio</td>
-<td align="right">637.4M</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Florida</td>
-<td align="right">635.0M</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">New York</td>
-<td align="right">558.0M</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Indiana</td>
-<td align="right">553.0M</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">North Dakota</td>
-<td align="right">523.7M</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="top-states-by-freight-value" class="section level3">
-<h3>Top States by Freight Value</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Rank</th>
-<th align="left">State</th>
-<th align="right">Freight Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Texas</td>
-<td align="right">$3.25T</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">California</td>
-<td align="right">$2.92T</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Illinois</td>
-<td align="right">$1.24T</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">New York</td>
-<td align="right">$1.06T</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Ohio</td>
-<td align="right">$905.3B</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Florida</td>
-<td align="right">$900.9B</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Pennsylvania</td>
-<td align="right">$893.0B</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">New Jersey</td>
-<td align="right">$885.1B</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Georgia</td>
-<td align="right">$840.4B</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">Michigan</td>
-<td align="right">$817.4B</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="commodity-analysis" class="section level1">
-<h1>Commodity Analysis</h1>
-<p>Commodity analysis revealed one of the most important findings in the
-project. the commodities moving in the greatest physical volumes are not
-necessarily those generating the greatest economic value.</p>
-<p>Natural gas and other fossil products represent the largest commodity
-group by physical freight volume, with approximately 3.08 billion short
-tons.</p>
-<p>However, electronics generate the highest total freight value,
-despite accounting for only approximately 151 million short tons.</p>
-<p>This difference illustrates why freight analysis should consider both
-physical volume and economic value.</p>
-<div id="highest-value-commodities" class="section level3">
-<h3>Highest-Value Commodities</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Rank</th>
-<th align="left">Commodity</th>
-<th align="right">Freight Volume</th>
-<th align="right">Freight Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Electronics</td>
-<td align="right">151.1M</td>
-<td align="right">$2.48T</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Mixed freight</td>
-<td align="right">478.3M</td>
-<td align="right">$1.88T</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Motorized vehicles</td>
-<td align="right">256.4M</td>
-<td align="right">$1.85T</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Pharmaceuticals</td>
-<td align="right">43.3M</td>
-<td align="right">$1.66T</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Machinery</td>
-<td align="right">144.1M</td>
-<td align="right">$1.47T</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Natural gas &amp; other fossil products</td>
-<td align="right">3.08B</td>
-<td align="right">$1.13T</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Misc. mfg. products</td>
-<td align="right">152.1M</td>
-<td align="right">$1.10T</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">Plastics/rubber</td>
-<td align="right">298.3M</td>
-<td align="right">$978.7B</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Gasoline</td>
-<td align="right">1.13B</td>
-<td align="right">$977.3B</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">Other foodstuffs</td>
-<td align="right">817.5M</td>
-<td align="right">$945.3B</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="highest-volume-commodities" class="section level3">
-<h3>Highest-Volume Commodities</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Rank</th>
-<th align="left">Commodity</th>
-<th align="right">Freight Volume</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Natural gas &amp; other fossil products</td>
-<td align="right">3.08B short tons</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Gravel</td>
-<td align="right">2.25B</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Nonmetal min. products</td>
-<td align="right">1.66B</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Gasoline</td>
-<td align="right">1.13B</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Crude petroleum</td>
-<td align="right">1.04B</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Cereal grains</td>
-<td align="right">963.1M</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Other foodstuffs</td>
-<td align="right">817.5M</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">Fuel oils</td>
-<td align="right">780.8M</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Waste/scrap</td>
-<td align="right">674.8M</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">Other ag products</td>
-<td align="right">651.9M</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="freight-value-density" class="section level1">
-<h1>Freight Value Density</h1>
-<p>To further investigate the relationship between physical freight
-volume and economic importance, a value-density measure was
-calculated.</p>
-<p>Value density was calculated as the freight value divided by freight
-weight, with the FAF6 units converted to dollars per short ton.</p>
-<p>Several commodities showed substantially higher economic value
-relative to their physical weight.</p>
-<div id="selected-high-value-low-weight-commodities" class="section level3">
-<h3>Selected High-Value / Low-Weight Commodities</h3>
-<table>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Commodity</th>
-<th align="right">Freight Volume</th>
-<th align="right">Freight Value</th>
-<th align="right">Approx. Value per Short Ton</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Electronics</td>
-<td align="right">151.1M</td>
-<td align="right">$2.48T</td>
-<td align="right">$16,400</td>
-</tr>
-<tr class="even">
-<td align="left">Machinery</td>
-<td align="right">144.1M</td>
-<td align="right">$1.47T</td>
-<td align="right">$10,200</td>
-</tr>
-<tr class="odd">
-<td align="left">Misc. mfg. products</td>
-<td align="right">152.1M</td>
-<td align="right">$1.10T</td>
-<td align="right">$7,240</td>
-</tr>
-<tr class="even">
-<td align="left">Motorized vehicles</td>
-<td align="right">256.4M</td>
-<td align="right">$1.85T</td>
-<td align="right">$7,220</td>
-</tr>
-<tr class="odd">
-<td align="left">Meat/seafood</td>
-<td align="right">125.0M</td>
-<td align="right">$565.5B</td>
-<td align="right">$4,520</td>
-</tr>
-<tr class="even">
-<td align="left">Articles-base metal</td>
-<td align="right">143.6M</td>
-<td align="right">$612.8B</td>
-<td align="right">$4,270</td>
-</tr>
-<tr class="odd">
-<td align="left">Mixed freight</td>
-<td align="right">478.3M</td>
-<td align="right">$1.88T</td>
-<td align="right">$3,930</td>
-</tr>
-<tr class="even">
-<td align="left">Plastics/rubber</td>
-<td align="right">298.3M</td>
-<td align="right">$978.7B</td>
-<td align="right">$3,280</td>
-</tr>
-<tr class="odd">
-<td align="left">Chemical products</td>
-<td align="right">197.4M</td>
-<td align="right">$593.3B</td>
-<td align="right">$3,010</td>
-</tr>
-<tr class="even">
-<td align="left">Alcoholic beverages</td>
-<td align="right">144.5M</td>
-<td align="right">$316.2B</td>
-<td align="right">$2,190</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="key-insight" class="section level2">
-<h2>Key Insight</h2>
-<p>The comparison between freight volume and freight value demonstrates
-that physical freight activity and economic importance are not
-equivalent measures.</p>
-<p>For example, natural gas and other fossil products account for
-approximately 3.08 billion short tons, making them the largest commodity
-group by physical volume. Electronics, however, account for
-approximately 151 million short tons while generating approximately
-$2.48 trillion in freight value.</p>
-<p>Electronics therefore illustrate how a relatively small physical
-freight volume can represent substantial economic value.</p>
-<p>This distinction is important for transportation planning, logistics
-strategy and infrastructure decision-making because high-volume freight
-and high-value freight can create different operational priorities.</p>
-</div>
-</div>
-<div id="state-freight-value-density" class="section level1">
-<h1>State Freight Value Density</h1>
-<p>The analysis also examined the economic value associated with each
-unit of freight weight at the state level.</p>
-<p>Massachusetts recorded the highest relative freight value density in
-the analysis at approximately $2,406 per short ton, followed by
-California at approximately $2,127 per short ton and New Jersey at
-approximately $2,014 per short ton.</p>
-<p>This measure provides a different perspective from total freight
-volume or total freight value. A state may have a relatively modest
-physical freight volume while still handling freight with comparatively
-high economic value.</p>
-<p>The value-density measure was therefore used as a supporting
-analytical indicator rather than as a standalone measure of overall
-freight importance.</p>
-</div>
-<div id="interactive-tableau-dashboard" class="section level1">
-<h1>Interactive Tableau Dashboard</h1>
-<p>The analysis was transformed into an interactive Tableau Public
-dashboard to allow users to explore freight patterns across states,
-commodities, transportation modes and trade types.</p>
-<p>The dashboard provides an executive-level overview of:</p>
+<div id="finding-3-freight-volume-and-economic-value-tell-different-stories" class="section level3">
+<h3>Finding 3 — Freight volume and economic value tell different
+stories</h3>
+<p>The commodity with the greatest physical volume is not necessarily
+the commodity with the greatest economic value.</p>
+<p>This demonstrates why transportation analysis should incorporate
+both:</p>
 <ul>
-<li>Total freight volume</li>
-<li>Total freight value</li>
-<li>Freight distribution across states</li>
-<li>Commodity-level freight activity</li>
-<li>Transportation-mode patterns</li>
-<li>High-value / low-weight commodities</li>
-<li>Freight value by trade type</li>
+<li>Volume</li>
+<li>Value</li>
 </ul>
-<p>The dashboard below provides an interactive view of U.S. freight
-activity. Users can filter the analysis by state, commodity,
-transportation mode and trade type and also by selecting filters or
-clicking on visualizations to investigate specific freight patterns. The
-view full screen button at the bottom right ensures a greater experience
-on the dashboard.</p>
-<div class="tableau-container">
-<iframe role="img" src="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no&amp;:embed=true" width="100%" height="800" frameborder="0" allowfullscreen>
-</iframe>
+<p>rather than relying on a single metric.</p>
+<hr />
 </div>
-<div class="project-buttons">
-<p><a href="https://public.tableau.com/views/U_S_FreightTransportAnalytics/U_SFreightTransportationAnalyticsDashboard?:showVizHome=no" target="_blank" class="project-button"> View Full Tableau Dashboard </a></p>
-<p><a href="https://github.com/okwumuo-martin/Logistics-Operation-Dashboard" target="_blank" class="project-button secondary"> View GitHub Repository </a></p>
+<div id="finding-4-electronics-is-a-high-value-freight-category" class="section level3">
+<h3>Finding 4 — Electronics is a high-value freight category</h3>
+<p>Electronics generated approximately:</p>
+<ul>
+<li><strong>151,050</strong> units of freight volume</li>
+<li><strong>2,478,656</strong> units of freight value</li>
+<li><strong>16.4 value per ton</strong></li>
+</ul>
+<p>This makes Electronics an important example of a relatively
+high-value freight category.</p>
+<hr />
 </div>
-<div id="how-to-use-the-dashboard" class="section level2">
-<h2>How to Use the Dashboard</h2>
-<p>The dashboard is designed for interactive exploration.</p>
-<div id="use-the-filters" class="section level3">
-<h3>1. Use the filters</h3>
-<p>Use the filters at the top of the dashboard to select:</p>
+<div id="finding-5-freight-analytics-can-support-infrastructure-planning" class="section level3">
+<h3>Finding 5 — Freight analytics can support infrastructure
+planning</h3>
+<p>Understanding where freight is concentrated can help organizations
+identify areas where transportation capacity may be particularly
+important.</p>
+<p>Potential applications include:</p>
+<ul>
+<li>Highway planning</li>
+<li>Rail planning</li>
+<li>Warehouse placement</li>
+<li>Distribution-center planning</li>
+<li>Port development</li>
+<li>Fleet allocation</li>
+</ul>
+<hr />
+</div>
+<div id="finding-6-different-commodities-require-different-logistics-strategies" class="section level3">
+<h3>Finding 6 — Different commodities require different logistics
+strategies</h3>
+<p>Bulk commodities may require:</p>
+<ul>
+<li>High-capacity transportation</li>
+<li>Storage facilities</li>
+<li>Specialized handling</li>
+</ul>
+<p>High-value commodities may require:</p>
+<ul>
+<li>Security</li>
+<li>Tracking</li>
+<li>Faster delivery</li>
+<li>Specialized logistics services</li>
+</ul>
+<p>Therefore, freight analytics should consider both <strong>commodity
+characteristics and economic value</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="business-insights" class="section level1">
+<h1>19. Business Insights</h1>
+<p>The EDA provides several potential business insights for logistics
+organizations.</p>
+<div id="logistics-network-planning" class="section level2">
+<h2>Logistics Network Planning</h2>
+<p>Freight concentration can help companies determine where
+transportation capacity should be prioritized.</p>
+</div>
+<div id="warehouse-location" class="section level2">
+<h2>Warehouse Location</h2>
+<p>States with high freight activity may be potential candidates for
+distribution centers and regional warehouses.</p>
+</div>
+<div id="fleet-planning" class="section level2">
+<h2>Fleet Planning</h2>
+<p>Understanding freight volumes can support decisions regarding:</p>
+<ul>
+<li>Fleet size</li>
+<li>Vehicle type</li>
+<li>Routing</li>
+<li>Capacity utilization</li>
+</ul>
+</div>
+<div id="risk-management" class="section level2">
+<h2>Risk Management</h2>
+<p>High-value freight may require enhanced shipment monitoring and
+security.</p>
+</div>
+<div id="infrastructure-investment" class="section level2">
+<h2>Infrastructure Investment</h2>
+<p>Freight concentration patterns can provide supporting evidence for
+transportation infrastructure investment.</p>
+<hr />
+</div>
+</div>
+<div id="potential-dashboard-applications" class="section level1">
+<h1>20. Potential Dashboard Applications</h1>
+<p>The EDA provides the foundation for an interactive <strong>US Freight
+Transportation Analytics Dashboard</strong>.</p>
+<p>A production dashboard could allow users to interactively
+explore:</p>
+<div id="kpi-cards" class="section level3">
+<h3>KPI Cards</h3>
+<ul>
+<li>Total Freight Volume</li>
+<li>Total Freight Value</li>
+<li>Number of States</li>
+<li>Number of Commodities</li>
+</ul>
+</div>
+<div id="geographic-analysis" class="section level3">
+<h3>Geographic Analysis</h3>
+<ul>
+<li>Freight by state</li>
+<li>Freight corridors</li>
+<li>Freight concentration</li>
+<li>State ranking</li>
+</ul>
+</div>
+<div id="commodity-analysis" class="section level3">
+<h3>Commodity Analysis</h3>
+<ul>
+<li>Top commodities by volume</li>
+<li>Top commodities by value</li>
+<li>Value per ton</li>
+<li>Commodity ranking</li>
+</ul>
+</div>
+<div id="interactive-filters" class="section level3">
+<h3>Interactive Filters</h3>
+<p>Users could filter the dashboard by:</p>
 <ul>
 <li>State</li>
 <li>Commodity</li>
+<li>Freight volume</li>
+<li>Freight value</li>
+<li>Transportation characteristics</li>
 </ul>
-</div>
-<div id="explore-the-charts" class="section level3">
-<h3>2. Explore the charts</h3>
-<p>Select individual states, commodities or transportation modes within
-the visualizations to investigate their contribution to overall freight
-activity and click again to reset dashboard.</p>
-</div>
-<div id="compare-volume-and-value" class="section level3">
-<h3>3. Compare volume and value</h3>
-<p>Use the freight-volume and freight-value visualizations together to
-identify areas where physical freight activity differs from economic
-importance.</p>
-</div>
-<div id="explore-high-value-freight" class="section level3">
-<h3>4. Explore high-value freight</h3>
-<p>Use the high-value/low-weight visualization to identify commodity
-groups with relatively high economic value compared with their physical
-freight volume.</p>
-</div>
-</div>
-</div>
-<div id="key-findings" class="section level1">
-<h1>Key Findings</h1>
-<p>The analysis identified several important patterns in the U.S.
-freight system.</p>
-<div id="truck-transportation-dominates-freight-activity" class="section level2">
-<h2>1. Truck transportation dominates freight activity</h2>
-<p>Truck transportation accounts for approximately 62.1% of total
-freight volume and 70.8% of total freight value.</p>
-<p>This makes trucking the dominant transportation mode in the analyzed
-freight network.</p>
-<p>However, the comparison between volume and value shows that
-transportation modes should not be evaluated solely on physical
-volume.</p>
 <hr />
 </div>
-<div id="texas-is-the-leading-freight-state" class="section level2">
-<h2>2. Texas is the leading freight state</h2>
-<p>Texas ranks first in both freight volume and freight value.</p>
-<p>The state accounts for approximately:</p>
-<ul>
-<li>2.77 billion short tons of freight</li>
-<li>$3.25 trillion in freight value</li>
-</ul>
-<p>California follows with approximately 1.37 billion short tons and
-$2.92 trillion in freight value.</p>
+</div>
+<div id="recommended-visualizations" class="section level1">
+<h1>21. Recommended Visualizations</h1>
+<p>The portfolio project can be enhanced with the following
+visualizations:</p>
+<div id="freight-volume-distribution" class="section level3">
+<h3>1. Freight Volume Distribution</h3>
+<p>A histogram showing the distribution of freight volume.</p>
+</div>
+<div id="top-states-by-freight-value" class="section level3">
+<h3>2. Top States by Freight Value</h3>
+<p>A horizontal bar chart showing the top 10 states.</p>
+</div>
+<div id="top-commodities-by-freight-volume" class="section level3">
+<h3>3. Top Commodities by Freight Volume</h3>
+<p>A ranked bar chart showing the largest commodity categories.</p>
+</div>
+<div id="top-commodities-by-freight-value" class="section level3">
+<h3>4. Top Commodities by Freight Value</h3>
+<p>A ranked bar chart showing the highest-value commodity
+categories.</p>
+</div>
+<div id="freight-value-vs.-freight-volume" class="section level3">
+<h3>5. Freight Value vs. Freight Volume</h3>
+<p>A scatter plot showing the relationship between physical volume and
+economic value.</p>
+</div>
+<div id="value-per-ton" class="section level3">
+<h3>6. Value per Ton</h3>
+<p>A ranked chart identifying commodities with the greatest value
+relative to their physical volume.</p>
+</div>
+<div id="geographic-freight-map" class="section level3">
+<h3>7. Geographic Freight Map</h3>
+<p>A US map showing freight activity by state.</p>
 <hr />
 </div>
-<div id="freight-volume-and-economic-value-tell-different-stories" class="section level2">
-<h2>3. Freight volume and economic value tell different stories</h2>
-<p>Natural gas and other fossil products represent the largest commodity
-group by physical volume at approximately 3.08 billion short tons.</p>
-<p>However, electronics generate the highest total freight value at
-approximately $2.48 trillion, despite accounting for only approximately
-151 million short tons.</p>
-<p>This demonstrates that the largest freight flows by weight are not
-necessarily the most economically valuable.</p>
+</div>
+<div id="analytical-workflow" class="section level1">
+<h1>22. Analytical Workflow</h1>
+<p>The complete analytical process can be summarized as:</p>
+<pre class="text"><code>FAF6 Freight Dataset
+        ↓
+Data Import
+        ↓
+Data Cleaning &amp; Validation
+        ↓
+Exploratory Data Analysis
+        ↓
+Freight Volume Analysis
+        ↓
+Freight Value Analysis
+        ↓
+Commodity Analysis
+        ↓
+State-Level Analysis
+        ↓
+Value-per-Ton Analysis
+        ↓
+Business Insights
+        ↓
+Interactive Logistics Dashboard</code></pre>
+<p>This workflow demonstrates the transition from raw transportation
+data to actionable business intelligence.</p>
 <hr />
-</div>
-<div id="electronics-have-particularly-high-value-density" class="section level2">
-<h2>4. Electronics have particularly high value density</h2>
-<p>Electronics have an estimated freight value density of approximately
-$16,400 per short ton.</p>
-<p>Machinery follows at approximately $10,200 per short ton.</p>
-<p>By comparison, heavy commodities such as gravel have dramatically
-lower value relative to their physical weight.</p>
-<p>This difference highlights the importance of considering both freight
-volume and economic value when evaluating transportation activity.</p>
-<hr />
-</div>
-<div id="state-freight-patterns-differ-depending-on-the-metric" class="section level2">
-<h2>5. State freight patterns differ depending on the metric</h2>
-<p>Texas leads in both total volume and total value, but the state
-rankings change when freight value is considered relative to physical
-weight.</p>
-<p>Massachusetts records the highest relative state-level value density
-at approximately $2,406 per short ton, followed by California at
-approximately $2,127 and New Jersey at approximately $2,014.</p>
-<p>This provides an additional perspective on the economic
-characteristics of freight moving through different states.</p>
-</div>
-</div>
-<div id="business-implications" class="section level1">
-<h1>Business Implications</h1>
-<p>The findings have several potential implications for transportation
-planning and logistics decision making.</p>
-<div id="infrastructure-planning" class="section level3">
-<h3>Infrastructure planning</h3>
-<p>High-volume freight corridors require infrastructure capable of
-supporting substantial physical freight movement. The dominance of
-trucking highlights the importance of road transportation within the
-overall freight network.</p>
-</div>
-<div id="economic-prioritization" class="section level3">
-<h3>Economic prioritization</h3>
-<p>Freight value provides a different perspective from physical volume.
-High-value commodities can have significant economic importance despite
-representing relatively small physical volumes.</p>
-</div>
-<div id="logistics-strategy" class="section level3">
-<h3>Logistics strategy</h3>
-<p>Understanding the relationship between commodity value and physical
-weight can help logistics organizations evaluate transportation
-requirements, handling priorities and network characteristics.</p>
-</div>
-<div id="state-level-planning" class="section level3">
-<h3>State-level planning</h3>
-<p>Differences between freight volume, total freight value and value
-density suggest that states may have different freight priorities
-depending on the characteristics of the commodities moving through their
-networks.</p>
-</div>
-<div id="data-driven-decision-making" class="section level3">
-<h3>Data-driven decision-making</h3>
-<p>Combining multiple measures rather than relying on a single KPI
-provides a more comprehensive understanding of freight activity.</p>
-</div>
-</div>
-<div id="recommendations" class="section level1">
-<h1>Recommendations</h1>
-<p>Based on the analysis, several recommendations can be considered:</p>
-<ol style="list-style-type: decimal">
-<li><p>Monitor freight volume and freight value together. Physical
-freight volume alone may not adequately represent economic
-importance.</p></li>
-<li><p>Prioritize high-value freight analysis. Commodities such as
-electronics, machinery and motorized vehicles demonstrate substantially
-higher value relative to their physical weight.</p></li>
-<li><p>Use mode-specific analysis when evaluating freight networks.
-Trucking dominates freight volume, while some lower-volume modes account
-for disproportionately large shares of freight value.</p></li>
-<li><p>Evaluate state freight patterns using multiple metrics. Total
-volume, total value and value density provide different perspectives on
-state-level freight activity.</p></li>
-<li><p>Use interactive analytics for further investigation. The Tableau
-dashboard allows users to filter the data and investigate specific
-states, commodities, transportation modes and trade types.</p></li>
-</ol>
-</div>
-<div id="conclusion" class="section level1">
-<h1>Conclusion</h1>
-<p>This project demonstrates how large, multidimensional freight data
-can be transformed into actionable business insights.</p>
-<p>The analysis shows that freight volume alone does not tell the
-complete story. Transportation mode, geographic location, commodity type
-and economic value provide complementary perspectives that can reveal
-patterns that would otherwise remain hidden.</p>
-<p>By combining R for data preparation and analysis with Tableau for
-interactive business intelligence, the project converts a large
-government dataset into an accessible analytical tool for exploring
-freight activity across the United States.</p>
 </div>
 <div id="technical-skills-demonstrated" class="section level1">
-<h1>Technical Skills Demonstrated</h1>
+<h1>23. Technical Skills Demonstrated</h1>
+<p>This project demonstrates practical experience with:</p>
 <div id="data-analysis" class="section level3">
 <h3>Data Analysis</h3>
 <ul>
-<li>R</li>
-<li>dplyr</li>
-<li>Data cleaning and transformation</li>
-<li>Grouped aggregation</li>
-<li>Missing-value analysis</li>
-<li>Duplicate detection</li>
-<li>Derived metrics</li>
-<li>Exploratory data analysis</li>
-<li>Statistical and descriptive analysis</li>
+<li>Data cleaning</li>
+<li>Data transformation</li>
+<li>Aggregation</li>
+<li>Grouping</li>
+<li>Statistical summaries</li>
 </ul>
 </div>
-<div id="data-visualization-business-intelligence" class="section level3">
-<h3>Data Visualization &amp; Business Intelligence</h3>
+<div id="r-programming" class="section level3">
+<h3>R Programming</h3>
 <ul>
-<li>Tableau Public</li>
-<li>Interactive dashboards development</li>
-<li>KPI design</li>
-<li>Filters and dashboard actions</li>
-<li>Scatter plots</li>
-<li>Reference lines</li>
-<li>Tooltips</li>
-<li>Geographic and categorical analysis</li>
-<li>Business storytelling and insight communication</li>
+<li><code>dplyr</code></li>
+<li><code>ggplot2</code></li>
+<li>Data manipulation</li>
+<li>Visualization</li>
+<li>Exploratory analysis</li>
 </ul>
 </div>
-<div id="data-engineering-preparation" class="section level3">
-<h3>Data Engineering / Preparation</h3>
+<div id="business-analytics" class="section level3">
+<h3>Business Analytics</h3>
 <ul>
-<li>Joining reference and look-up tables</li>
-<li>Mapping coded values to business-friendly labels</li>
-<li>Preparing analysis-ready datasets</li>
-<li>Exporting cleaned data for visualization</li>
-</ul>
-</div>
-<div id="analytical-techniques" class="section level3">
-<h3>Analytical Techniques</h3>
-<ul>
-<li>Freight volume analysis</li>
-<li>Economic value analysis</li>
-<li>Transportation-mode analysis</li>
-<li>State-level comparison</li>
+<li>KPI development</li>
+<li>Freight-volume analysis</li>
+<li>Freight-value analysis</li>
+<li>Geographic analysis</li>
 <li>Commodity analysis</li>
-<li>Value-density analysis</li>
 </ul>
 </div>
+<div id="data-visualization" class="section level3">
+<h3>Data Visualization</h3>
+<ul>
+<li>Bar charts</li>
+<li>Histograms</li>
+<li>Scatter plots</li>
+<li>Ranking charts</li>
+<li>Geographic visualization</li>
+</ul>
 </div>
-<div id="tools-technologies" class="section level1">
-<h1>Tools &amp; Technologies</h1>
-<div class="tech-stack">
-<p><span>R</span></p>
-<p><span>R Markdown</span></p>
-<p><span>ggplot2</span></p>
-<p><span>Tableau</span></p>
-<p><span>Excel</span></p>
-<p><span>Git</span></p>
-<p><span>GitHub</span></p>
+<div id="data-science" class="section level3">
+<h3>Data Science</h3>
+<ul>
+<li>Feature creation</li>
+<li>Derived metrics</li>
+<li>Pattern identification</li>
+<li>Business interpretation</li>
+</ul>
 </div>
-</div>
-<div id="project-takeaway" class="section level1">
-<h1>Project Takeaway</h1>
-<p>This project demonstrates an end-to-end analytics workflow using a
-large real-world government dataset.</p>
-<p>Starting with more than 599,000 freight records, I transformed coded
-FAF6 data into an analysis-ready dataset, performed exploratory and
-comparative analysis in R, and developed an interactive Tableau
-dashboard for business users.</p>
-<p>The project demonstrates my ability to combine technical data skills,
-business understanding, visualization, and analytical storytelling to
-turn complex datasets into actionable insights.</p>
-<p><strong>Data Source</strong> U.S. Department of Transportation,
-Bureau of Transportation Statistics — Freight Analysis Framework
-(FAF6)</p>
-</div>
-</div>
-</div>
-<div class="section-divider">
-
-</div>
-<div class="project-cta">
-Interested in working together?
-<p>
-I’m open to opportunities in Data Analytics, Business Intelligence, and
-Operations Analytics.
-</p>
-<a href="resume/Martin_Okwumuo_Data_Analyst_CV.pdf" class="project-button">
-📄 View Resume </a>
-<a href="contact/contacts.html" class="project-button secondary"> ✉️
-Contact Me </a>
+<div id="portfolio-development" class="section level3">
+<h3>Portfolio Development</h3>
+<ul>
+<li>Git</li>
+<li>GitHub</li>
+<li>R Markdown</li>
+<li>Interactive dashboard development</li>
+</ul>
+<hr />
 </div>
 </div>
-<p>Okwumuo Martin I. 20226</p>
+<div id="limitations" class="section level1">
+<h1>24. Limitations</h1>
+<p>Several limitations should be considered when interpreting the
+analysis.</p>
+<div id="dataset-scope" class="section level3">
+<h3>Dataset Scope</h3>
+<p>The analysis is based on the available FAF6 dataset and therefore
+reflects the variables and geographic definitions contained in that
+dataset.</p>
+</div>
+<div id="aggregation" class="section level3">
+<h3>Aggregation</h3>
+<p>State and commodity aggregation can hide variation within individual
+transportation corridors or individual shipments.</p>
+</div>
+<div id="freight-value-1" class="section level3">
+<h3>Freight Value</h3>
+<p>Freight value should be interpreted according to the dataset’s
+definitions and units rather than assumed to represent company revenue
+or profit.</p>
+</div>
+<div id="no-operational-cost-analysis" class="section level3">
+<h3>No Operational Cost Analysis</h3>
+<p>The current EDA does not incorporate:</p>
+<ul>
+<li>Fuel costs</li>
+<li>Driver costs</li>
+<li>Toll costs</li>
+<li>Delivery times</li>
+<li>Vehicle operating costs</li>
+<li>Warehouse costs</li>
+</ul>
+<p>Consequently, freight volume and value alone cannot determine
+transportation profitability.</p>
+</div>
+<div id="no-route-optimization" class="section level3">
+<h3>No Route Optimization</h3>
+<p>The analysis identifies freight patterns but does not currently
+optimize routes or transportation schedules.</p>
+<hr />
+</div>
+</div>
+<div id="future-improvements" class="section level1">
+<h1>25. Future Improvements</h1>
+<p>Future versions of the project could incorporate:</p>
+<div id="route-optimization" class="section level2">
+<h2>Route Optimization</h2>
+<p>Develop algorithms for identifying efficient transportation
+routes.</p>
+</div>
+<div id="geographic-mapping" class="section level2">
+<h2>Geographic Mapping</h2>
+<p>Create an interactive US freight-flow map.</p>
+</div>
+<div id="commodity-forecasting" class="section level2">
+<h2>Commodity Forecasting</h2>
+<p>Use time-series or machine-learning techniques to forecast freight
+demand.</p>
+</div>
+<div id="transportation-cost-analysis" class="section level2">
+<h2>Transportation Cost Analysis</h2>
+<p>Combine freight flows with fuel, labor, toll, and operating-cost
+data.</p>
+</div>
+<div id="predictive-analytics" class="section level2">
+<h2>Predictive Analytics</h2>
+<p>Develop models for forecasting:</p>
+<ul>
+<li>Freight demand</li>
+<li>Shipment volumes</li>
+<li>Regional demand</li>
+<li>Commodity movements</li>
+</ul>
+</div>
+<div id="interactive-dashboard" class="section level2">
+<h2>Interactive Dashboard</h2>
+<p>Develop a Shiny or Tableau dashboard allowing users to explore
+freight patterns interactively.</p>
+</div>
+<div id="machine-learning" class="section level2">
+<h2>Machine Learning</h2>
+<p>Potential machine-learning applications include:</p>
+<ul>
+<li>Freight demand prediction</li>
+<li>State-level freight classification</li>
+<li>Commodity forecasting</li>
+<li>Anomaly detection</li>
+<li>Transportation risk prediction</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="portfolio-project-value" class="section level1">
+<h1>26. Portfolio Project Value</h1>
+<p>This project demonstrates more than the ability to create charts from
+a dataset.</p>
+<p>It demonstrates the ability to:</p>
+<p><strong>Acquire → Clean → Explore → Aggregate → Visualize → Interpret
+→ Communicate</strong></p>
+<p>large-scale transportation data.</p>
+<p>The project is particularly relevant to careers in:</p>
+<ul>
+<li>Data Analytics</li>
+<li>Business Intelligence</li>
+<li>Logistics Analytics</li>
+<li>Supply Chain Analytics</li>
+<li>Transportation Analytics</li>
+<li>Operations Analytics</li>
+<li>Data Science</li>
+<li>Business Analysis</li>
+</ul>
+<hr />
+</div>
+<div id="conclusion" class="section level1">
+<h1>27. Conclusion</h1>
+<p>The exploratory analysis of the US Freight Transportation dataset
+provides a high-level view of freight activity across the United
+States.</p>
+<p>The analysis identified substantial freight activity across
+<strong>599,529 observations</strong>, <strong>51
+states/regions</strong>, and <strong>42 commodity
+categories</strong>.</p>
+<p>The results demonstrate that freight transportation should be
+evaluated from both physical and economic perspectives.</p>
+<p>The state-level analysis identified major freight-value hubs, with
+<strong>Texas, California, Illinois, New York, and Ohio</strong> among
+the leading states.</p>
+<p>At the commodity level, <strong>Electronics</strong> demonstrated the
+importance of considering economic value in addition to physical freight
+volume, with approximately <strong>151,050 units of freight volume and
+2,478,656 units of freight value</strong>.</p>
+<p>Overall, the project demonstrates how transportation data can be
+transformed into useful insights for <strong>logistics planning,
+supply-chain management, infrastructure development, and operational
+decision-making</strong>.</p>
+<p>The EDA provides the analytical foundation for the next stage of the
+project: developing an interactive <strong>US Freight Transportation
+Analytics Dashboard</strong> that allows users to explore freight
+patterns across states and commodities.</p>
+<hr />
+<div id="portfolio-takeaway" class="section level2">
+<h2>Portfolio Takeaway</h2>
+<blockquote>
+<p><strong>This project demonstrates the ability to analyze large-scale
+transportation data, identify geographic and commodity-level freight
+patterns, develop meaningful logistics KPIs, and translate analytical
+findings into actionable business insights.</strong></p>
+</blockquote>
+<p>The project combines <strong>R, data manipulation, exploratory
+analysis, visualization, and business intelligence</strong> to
+demonstrate an end-to-end approach to transportation analytics.</p>
 <button onclick="topFunction()" id="topBtn">⬆</button>
 
 <script>
@@ -2591,6 +2512,7 @@ behavior:'smooth'
 }
 
 </script>
+</div>
 </div>
 
 
