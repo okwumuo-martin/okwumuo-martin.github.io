@@ -333,12 +333,12 @@ Swiftkey/Coursera
    View Slide
 </a>
 
-<a class="button" href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/Next_Word_Model_Case_Study.html">
+<a class="button" href="projects/swiftkey-text-prediction-model/reports/Next_Word_Model_Case_Study.html">
     View Case Study
 </a>
 
 <a class="button"
-   href="projects/swiftkey-text-prediction-model/Text-Prediction-Model/EDA_Report.html">
+   href="projects/swiftkey-text-prediction-model/reports/EDA_Report.html">
    View EDA Report
 </a>
 
@@ -381,12 +381,12 @@ GermanCredit Dataset in R
    View Slide
 </a>
 
-<a class="button" href="projects/German-Credit-Predictor/German_Credit_Case_Study.html">
+<a class="button" href="projects/German-Credit-Predictor/reports/German_Credit_Case_Study.html">
     View Case Study
 </a>
 
 <a class="button"
-   href="projects/German-Credit-Predictor/EDA_Report_German_Credit.html">
+   href="projects/German-Credit-Predictor/reports/EDA_Report_German_Credit.html">
    View EDA Report
 </a>
 
