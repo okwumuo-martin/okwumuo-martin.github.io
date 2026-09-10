@@ -1,0 +1,881 @@
+---
+title: "EDA Report On U.S. Freight Transportation Analytics"
+author: "Martin Okwumuo I."
+date: "2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+    css: ../../assets/css/style.css
+---
+
+# Exploratory Data Analysis Report
+
+## US Freight Transportation Analytics
+
+### Freight Flow, Commodity, and State-Level Analysis Using the FAF6 Dataset
+
+---
+
+# 1. Executive Summary
+
+This exploratory data analysis investigates freight transportation patterns across the United States using data from the Freight Analysis Framework (FAF6).
+
+The objective of the analysis is to understand how freight moves across the US transportation network, identify the states and commodities associated with the greatest freight activity, examine freight value and volume patterns, and generate insights that can support logistics, transportation, and supply-chain decision-making.
+
+The dataset contains **599,529 freight-flow records across 11 variables**, covering transportation activity involving **51 states and 42 commodity categories**.
+
+The analysis examines freight from two primary perspectives:
+
+* **Freight volume**, measured in tons
+* **Freight economic value**
+
+This distinction is important because the commodities generating the largest physical volumes are not necessarily the commodities generating the greatest economic value.
+
+The analysis found that freight activity is highly concentrated among major US economic and transportation hubs. **Texas, California, Illinois, New York, and Ohio** were among the leading states by freight value.
+
+At the commodity level, **Electronics** stood out as a particularly high-value commodity, generating approximately **2.48 million units of freight value** and approximately **151,050 units of freight volume** within the analyzed dataset.
+
+The results demonstrate how transportation data can be transformed into actionable insights for logistics planning, supply-chain management, infrastructure investment, and freight-market analysis.
+
+---
+
+# 2. Business Problem
+
+The US freight transportation system moves enormous quantities of goods between production facilities, distribution centers, businesses, and consumers.
+
+For logistics and supply-chain organizations, understanding freight movement is important for answering questions such as:
+
+* Which states handle the greatest freight activity?
+* Which commodities contribute most to freight volume?
+* Which commodities contribute most to freight value?
+* Where are the major freight concentration points?
+* Which regions may require greater transportation capacity?
+* How can freight data support logistics planning and operational decisions?
+
+Without structured analysis, large transportation datasets can be difficult to interpret and convert into useful business intelligence.
+
+This project therefore applies exploratory data analysis to freight-flow data to identify major transportation patterns and potential areas of operational importance.
+
+---
+
+# 3. Project Objectives
+
+The main objectives of the analysis were to:
+
+1. Examine the structure and characteristics of the FAF6 freight dataset.
+2. Quantify total freight volume and freight value.
+3. Identify the number of states represented in the dataset.
+4. Identify the number of commodity categories represented.
+5. Determine the commodities generating the greatest freight volume.
+6. Determine the commodities generating the greatest freight value.
+7. Identify states associated with the greatest freight value.
+8. Compare physical freight volume with economic freight value.
+9. Calculate value-per-ton metrics for commodities.
+10. Generate insights relevant to transportation and supply-chain management.
+11. Develop a foundation for an interactive logistics analytics dashboard.
+
+---
+
+# 4. Data Source
+
+The analysis uses the **Freight Analysis Framework (FAF6)** dataset developed by the US Bureau of Transportation Statistics and its transportation-data partners.
+
+FAF provides detailed information about freight flows within, into, and out of the United States.
+
+The dataset can be used to analyze:
+
+* Freight origins
+* Freight destinations
+* Commodity flows
+* Transportation activity
+* Freight volume
+* Freight value
+* Transportation networks
+
+The dataset was selected because it provides a strong foundation for analyzing US freight transportation at a national and regional level.
+
+---
+
+# 5. Dataset Overview
+
+The imported dataset contained:
+
+| Metric               |         Result |
+| -------------------- | -------------: |
+| Observations         |    **599,529** |
+| Variables            |         **11** |
+| States represented   |         **51** |
+| Commodity categories |         **42** |
+| Total freight volume | **19,632,954** |
+| Total freight value  | **24,767,866** |
+
+The dataset therefore provides a substantial number of freight-flow observations for exploratory analysis.
+
+The 599,529 records allow transportation activity to be examined at a relatively detailed level rather than relying only on national-level aggregates.
+
+---
+
+# 6. Data Structure
+
+The initial inspection was performed using R:
+
+```r
+dim(freight)
+
+str(freight)
+
+summary(freight)
+
+names(freight)
+```
+
+The analysis confirmed that the dataset contains **599,529 observations and 11 variables**.
+
+The relatively large number of observations provides sufficient data for aggregation and comparative analysis across states, commodities, and freight measures.
+
+---
+
+# 7. Data Quality Assessment
+
+Before conducting the main analysis, the dataset should be assessed for:
+
+* Missing values
+* Duplicate records
+* Invalid values
+* Unexpected categorical values
+* Extreme observations
+
+Missing values can be checked using:
+
+```r
+colSums(is.na(freight))
+```
+
+Duplicate records can be investigated using:
+
+```r
+sum(duplicated(freight))
+```
+
+Summary statistics were also used to identify potentially unusual values:
+
+```r
+summary(freight)
+```
+
+These steps are important because transportation data may contain very large values and highly concentrated observations.
+
+---
+
+# 8. Overall Freight Activity
+
+The first stage of the analysis was to calculate the overall freight volume and value.
+
+The analysis produced:
+
+### Total Freight Volume
+
+**19,632,954**
+
+### Total Freight Value
+
+**24,767,866**
+
+These figures demonstrate the scale of transportation activity represented by the dataset.
+
+The analysis also identified:
+
+* **51 states**
+* **42 commodity categories**
+
+This provides a broad national view of freight activity.
+
+---
+
+# 9. Freight Volume Analysis
+
+Freight volume measures the physical quantity of goods being transported.
+
+The total freight volume was:
+
+> **19,632,954**
+
+Freight volume is particularly relevant to transportation operators because physical volume influences:
+
+* Truck capacity
+* Rail capacity
+* Warehouse requirements
+* Port throughput
+* Road infrastructure
+* Fuel consumption
+* Distribution requirements
+
+A high-volume commodity may therefore place significant demands on transportation infrastructure even if its economic value is relatively low.
+
+---
+
+# 10. Freight Value Analysis
+
+Freight value provides an economic perspective on transportation activity.
+
+The total freight value in the analyzed dataset was:
+
+> **24,767,866**
+
+Value is important because two commodities can generate similar transportation volumes while having very different economic significance.
+
+High-value freight may require:
+
+* Enhanced security
+* Specialized handling
+* Faster transportation
+* Greater inventory protection
+* Higher-value logistics services
+
+Therefore, freight volume and freight value should be analyzed together rather than independently.
+
+---
+
+# 11. Commodity-Level Analysis
+
+The dataset contains **42 commodity categories**.
+
+Commodity-level aggregation was performed to identify which categories contribute most to freight activity.
+
+A typical aggregation approach is:
+
+```r
+commodity_summary <- freight %>%
+  group_by(commodity) %>%
+  summarise(
+    freight_tons = sum(freight_tons, na.rm = TRUE),
+    freight_value = sum(freight_value, na.rm = TRUE)
+  )
+```
+
+The results can then be ranked by freight volume:
+
+```r
+commodity_summary %>%
+  arrange(desc(freight_tons))
+```
+
+Or by freight value:
+
+```r
+commodity_summary %>%
+  arrange(desc(freight_value))
+```
+
+---
+
+# 12. High-Value Commodity Analysis
+
+One of the notable findings was the performance of the **Electronics** commodity category.
+
+The analysis produced approximately:
+
+| Commodity   | Freight Volume | Freight Value | Value per Ton |
+| ----------- | -------------: | ------------: | ------------: |
+| Electronics |        151,050 |     2,478,656 |          16.4 |
+
+Electronics therefore represents a particularly interesting category because its economic value is high relative to its physical freight volume.
+
+### Business Interpretation
+
+This demonstrates an important principle in logistics analytics:
+
+> **Freight volume does not necessarily equal economic importance.**
+
+Electronics may occupy relatively less physical capacity than bulk commodities while representing considerably greater economic value.
+
+From a logistics perspective, high-value commodities may justify:
+
+* Enhanced security
+* Improved shipment tracking
+* Reduced transit times
+* Specialized transportation services
+* Higher insurance requirements
+* Greater inventory visibility
+
+---
+
+# 13. Value-per-Ton Analysis
+
+To compare commodity economic importance relative to physical volume, the analysis calculated:
+
+```r
+value_per_ton = freight_value / freight_tons
+```
+
+This metric provides an estimate of the economic value associated with each unit of freight volume.
+
+For Electronics:
+
+> **Value per ton ≈ 16.4**
+
+This metric helps distinguish between:
+
+### High-volume / lower-value freight
+
+Examples may include bulk materials and agricultural products.
+
+### Lower-volume / high-value freight
+
+Examples may include electronics and other specialized products.
+
+This distinction is particularly useful for transportation planning because different freight categories may require different logistics strategies.
+
+---
+
+# 14. State-Level Freight Analysis
+
+The dataset includes freight activity associated with **51 states/regions**.
+
+State-level aggregation was used to identify the locations with the greatest freight value.
+
+The analysis produced the following top 10 states:
+
+| Rank | State        | Relative Freight Value |
+| ---: | ------------ | ---------------------: |
+|    1 | Texas        |                Highest |
+|    2 | California   |              Very High |
+|    3 | Illinois     |              Very High |
+|    4 | New York     |                   High |
+|    5 | Ohio         |                   High |
+|    6 | Florida      |                   High |
+|    7 | Pennsylvania |                   High |
+|    8 | New Jersey   |                   High |
+|    9 | Georgia      |                   High |
+|   10 | Michigan     |                   High |
+
+The exact ranking was generated from the freight-value aggregation.
+
+---
+
+# 15. Geographic Freight Concentration
+
+The concentration of freight activity among states such as **Texas, California, Illinois, New York, and Ohio** is consistent with their importance as major population centers, production locations, distribution hubs, ports, and transportation corridors.
+
+### Texas
+
+Texas represents a major logistics hub because of its large geographic area, industrial activity, population, and extensive road and rail networks.
+
+### California
+
+California is a major gateway for international trade and contains important population and economic centers.
+
+### Illinois
+
+Illinois is strategically important because of its central geographic position and extensive transportation infrastructure.
+
+### New York
+
+New York represents a major economic and population center with substantial freight demand.
+
+### Ohio
+
+Ohio's central location and industrial base make it an important transportation and distribution region.
+
+---
+
+# 16. Freight Value by State
+
+The state-level analysis can be reproduced using:
+
+```r
+state_summary <- freight %>%
+  group_by(state) %>%
+  summarise(
+    freight_tons = sum(freight_tons, na.rm = TRUE),
+    freight_value = sum(freight_value, na.rm = TRUE)
+  ) %>%
+  arrange(desc(freight_value))
+```
+
+The top 10 states can then be visualized:
+
+```r
+ggplot(
+  head(state_summary, 10),
+  aes(
+    x = reorder(state, freight_value),
+    y = freight_value
+  )
+) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top 10 States by Freight Value",
+    x = "State",
+    y = "Freight Value"
+  )
+```
+
+---
+
+# 17. Freight Volume vs. Freight Value
+
+A major objective of the analysis was to compare physical freight volume with economic value.
+
+These two measures answer different business questions.
+
+### Freight Volume
+
+Answers:
+
+> **How much physical freight is being transported?**
+
+### Freight Value
+
+Answers:
+
+> **What is the economic value associated with the freight?**
+
+A state or commodity may rank highly in one metric but not the other.
+
+This difference is important because logistics resources should not necessarily be allocated solely according to freight tonnage.
+
+High-value freight may require a different operational strategy from high-volume freight.
+
+---
+
+# 18. Key EDA Findings
+
+The exploratory analysis produced several important findings.
+
+### Finding 1 — The dataset is large and geographically broad
+
+The dataset contains **599,529 observations**, providing extensive information about freight movements.
+
+The analysis covers **51 states/regions and 42 commodity categories**.
+
+---
+
+### Finding 2 — Freight activity is concentrated geographically
+
+A relatively small number of states account for substantial freight value.
+
+**Texas, California, Illinois, New York, and Ohio** were among the leading states.
+
+This suggests that major economic and transportation hubs play a significant role in US freight activity.
+
+---
+
+### Finding 3 — Freight volume and economic value tell different stories
+
+The commodity with the greatest physical volume is not necessarily the commodity with the greatest economic value.
+
+This demonstrates why transportation analysis should incorporate both:
+
+* Volume
+* Value
+
+rather than relying on a single metric.
+
+---
+
+### Finding 4 — Electronics is a high-value freight category
+
+Electronics generated approximately:
+
+* **151,050** units of freight volume
+* **2,478,656** units of freight value
+* **16.4 value per ton**
+
+This makes Electronics an important example of a relatively high-value freight category.
+
+---
+
+### Finding 5 — Freight analytics can support infrastructure planning
+
+Understanding where freight is concentrated can help organizations identify areas where transportation capacity may be particularly important.
+
+Potential applications include:
+
+* Highway planning
+* Rail planning
+* Warehouse placement
+* Distribution-center planning
+* Port development
+* Fleet allocation
+
+---
+
+### Finding 6 — Different commodities require different logistics strategies
+
+Bulk commodities may require:
+
+* High-capacity transportation
+* Storage facilities
+* Specialized handling
+
+High-value commodities may require:
+
+* Security
+* Tracking
+* Faster delivery
+* Specialized logistics services
+
+Therefore, freight analytics should consider both **commodity characteristics and economic value**.
+
+---
+
+# 19. Business Insights
+
+The EDA provides several potential business insights for logistics organizations.
+
+## Logistics Network Planning
+
+Freight concentration can help companies determine where transportation capacity should be prioritized.
+
+## Warehouse Location
+
+States with high freight activity may be potential candidates for distribution centers and regional warehouses.
+
+## Fleet Planning
+
+Understanding freight volumes can support decisions regarding:
+
+* Fleet size
+* Vehicle type
+* Routing
+* Capacity utilization
+
+## Risk Management
+
+High-value freight may require enhanced shipment monitoring and security.
+
+## Infrastructure Investment
+
+Freight concentration patterns can provide supporting evidence for transportation infrastructure investment.
+
+---
+
+# 20. Potential Dashboard Applications
+
+The EDA provides the foundation for an interactive **US Freight Transportation Analytics Dashboard**.
+
+A production dashboard could allow users to interactively explore:
+
+### KPI Cards
+
+* Total Freight Volume
+* Total Freight Value
+* Number of States
+* Number of Commodities
+
+### Geographic Analysis
+
+* Freight by state
+* Freight corridors
+* Freight concentration
+* State ranking
+
+### Commodity Analysis
+
+* Top commodities by volume
+* Top commodities by value
+* Value per ton
+* Commodity ranking
+
+### Interactive Filters
+
+Users could filter the dashboard by:
+
+* State
+* Commodity
+* Freight volume
+* Freight value
+* Transportation characteristics
+
+---
+
+# 21. Recommended Visualizations
+
+The portfolio project can be enhanced with the following visualizations:
+
+### 1. Freight Volume Distribution
+
+A histogram showing the distribution of freight volume.
+
+### 2. Top States by Freight Value
+
+A horizontal bar chart showing the top 10 states.
+
+### 3. Top Commodities by Freight Volume
+
+A ranked bar chart showing the largest commodity categories.
+
+### 4. Top Commodities by Freight Value
+
+A ranked bar chart showing the highest-value commodity categories.
+
+### 5. Freight Value vs. Freight Volume
+
+A scatter plot showing the relationship between physical volume and economic value.
+
+### 6. Value per Ton
+
+A ranked chart identifying commodities with the greatest value relative to their physical volume.
+
+### 7. Geographic Freight Map
+
+A US map showing freight activity by state.
+
+---
+
+# 22. Analytical Workflow
+
+The complete analytical process can be summarized as:
+
+```text
+FAF6 Freight Dataset
+        ↓
+Data Import
+        ↓
+Data Cleaning & Validation
+        ↓
+Exploratory Data Analysis
+        ↓
+Freight Volume Analysis
+        ↓
+Freight Value Analysis
+        ↓
+Commodity Analysis
+        ↓
+State-Level Analysis
+        ↓
+Value-per-Ton Analysis
+        ↓
+Business Insights
+        ↓
+Interactive Logistics Dashboard
+```
+
+This workflow demonstrates the transition from raw transportation data to actionable business intelligence.
+
+---
+
+# 23. Technical Skills Demonstrated
+
+This project demonstrates practical experience with:
+
+### Data Analysis
+
+* Data cleaning
+* Data transformation
+* Aggregation
+* Grouping
+* Statistical summaries
+
+### R Programming
+
+* `dplyr`
+* `ggplot2`
+* Data manipulation
+* Visualization
+* Exploratory analysis
+
+### Business Analytics
+
+* KPI development
+* Freight-volume analysis
+* Freight-value analysis
+* Geographic analysis
+* Commodity analysis
+
+### Data Visualization
+
+* Bar charts
+* Histograms
+* Scatter plots
+* Ranking charts
+* Geographic visualization
+
+### Data Science
+
+* Feature creation
+* Derived metrics
+* Pattern identification
+* Business interpretation
+
+### Portfolio Development
+
+* Git
+* GitHub
+* R Markdown
+* Interactive dashboard development
+
+---
+
+# 24. Limitations
+
+Several limitations should be considered when interpreting the analysis.
+
+### Dataset Scope
+
+The analysis is based on the available FAF6 dataset and therefore reflects the variables and geographic definitions contained in that dataset.
+
+### Aggregation
+
+State and commodity aggregation can hide variation within individual transportation corridors or individual shipments.
+
+### Freight Value
+
+Freight value should be interpreted according to the dataset's definitions and units rather than assumed to represent company revenue or profit.
+
+### No Operational Cost Analysis
+
+The current EDA does not incorporate:
+
+* Fuel costs
+* Driver costs
+* Toll costs
+* Delivery times
+* Vehicle operating costs
+* Warehouse costs
+
+Consequently, freight volume and value alone cannot determine transportation profitability.
+
+### No Route Optimization
+
+The analysis identifies freight patterns but does not currently optimize routes or transportation schedules.
+
+---
+
+# 25. Future Improvements
+
+Future versions of the project could incorporate:
+
+## Route Optimization
+
+Develop algorithms for identifying efficient transportation routes.
+
+## Geographic Mapping
+
+Create an interactive US freight-flow map.
+
+## Commodity Forecasting
+
+Use time-series or machine-learning techniques to forecast freight demand.
+
+## Transportation Cost Analysis
+
+Combine freight flows with fuel, labor, toll, and operating-cost data.
+
+## Predictive Analytics
+
+Develop models for forecasting:
+
+* Freight demand
+* Shipment volumes
+* Regional demand
+* Commodity movements
+
+## Interactive Dashboard
+
+Develop a Shiny or Tableau dashboard allowing users to explore freight patterns interactively.
+
+## Machine Learning
+
+Potential machine-learning applications include:
+
+* Freight demand prediction
+* State-level freight classification
+* Commodity forecasting
+* Anomaly detection
+* Transportation risk prediction
+
+---
+
+# 26. Portfolio Project Value
+
+This project demonstrates more than the ability to create charts from a dataset.
+
+It demonstrates the ability to:
+
+**Acquire → Clean → Explore → Aggregate → Visualize → Interpret → Communicate**
+
+large-scale transportation data.
+
+The project is particularly relevant to careers in:
+
+* Data Analytics
+* Business Intelligence
+* Logistics Analytics
+* Supply Chain Analytics
+* Transportation Analytics
+* Operations Analytics
+* Data Science
+* Business Analysis
+
+---
+
+# 27. Conclusion
+
+The exploratory analysis of the US Freight Transportation dataset provides a high-level view of freight activity across the United States.
+
+The analysis identified substantial freight activity across **599,529 observations**, **51 states/regions**, and **42 commodity categories**.
+
+The results demonstrate that freight transportation should be evaluated from both physical and economic perspectives.
+
+The state-level analysis identified major freight-value hubs, with **Texas, California, Illinois, New York, and Ohio** among the leading states.
+
+At the commodity level, **Electronics** demonstrated the importance of considering economic value in addition to physical freight volume, with approximately **151,050 units of freight volume and 2,478,656 units of freight value**.
+
+Overall, the project demonstrates how transportation data can be transformed into useful insights for **logistics planning, supply-chain management, infrastructure development, and operational decision-making**.
+
+The EDA provides the analytical foundation for the next stage of the project: developing an interactive **US Freight Transportation Analytics Dashboard** that allows users to explore freight patterns across states and commodities.
+
+---
+
+## Portfolio Takeaway
+
+> **This project demonstrates the ability to analyze large-scale transportation data, identify geographic and commodity-level freight patterns, develop meaningful logistics KPIs, and translate analytical findings into actionable business insights.**
+
+The project combines **R, data manipulation, exploratory analysis, visualization, and business intelligence** to demonstrate an end-to-end approach to transportation analytics.
+
+```{=html}
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+
+window.onscroll=function(){
+
+scrollFunction();
+
+};
+
+function scrollFunction(){
+
+if(document.body.scrollTop>400||
+
+document.documentElement.scrollTop>400){
+
+document.getElementById("topBtn").style.display="block";
+
+}else{
+
+document.getElementById("topBtn").style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:'smooth'
+
+});
+
+}
+
+</script>
+```
